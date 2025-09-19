@@ -54,8 +54,6 @@ function HomeContent() {
           />
         </div>
 
-       
-        <div className="absolute inset-0 bg-black-70 bg-opacity-10 z-10"></div>
 
         <div className="relative z-20 container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
           <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
