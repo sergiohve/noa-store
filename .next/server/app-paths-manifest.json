@@ -5,6 +5,6 @@
   "/page": "app/page.js",
   "/sobre-nosotros/page": "app/sobre-nosotros/page.js",
   "/porque-elegirnos/page": "app/porque-elegirnos/page.js",
-  "/ups/page": "app/ups/page.js",
-  "/tienda/page": "app/tienda/page.js"
+  "/tienda/page": "app/tienda/page.js",
+  "/ups/page": "app/ups/page.js"
 }
