@@ -9,16 +9,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "../store/cartStore";
-import { productsData } from "../constants/constants";
+import { Product, productsData } from "../constants/constants";
 import { useSearchParams } from "next/navigation";
-
-export interface Product {
-  id: number;
-  name: string;
-  sku: string;
-  image: string;
-  category: string;
-}
 
 function ProductDetailContent() {
   const addItem = useCartStore((state) => state.addItem);
@@ -92,10 +84,7 @@ function ProductDetailContent() {
                   {product.category}
                 </p>
                 <p className="mt-4 text-gray-800 leading-relaxed">
-                  Descripción del producto: Este sistema UPS ofrece la máxima
-                  protección para sus equipos sensibles, garantizando un
-                  suministro de energía ininterrumpido y estable. Ideal para
-                  entornos críticos y servidores.
+                  {product.description}
                 </p>
               </div>
             </div>

@@ -4,8 +4,8 @@
   "/favicon.ico/route": "/favicon.ico",
   "/detail-product/page": "/detail-product",
   "/page": "/",
-  "/porque-elegirnos/page": "/porque-elegirnos",
   "/sobre-nosotros/page": "/sobre-nosotros",
+  "/porque-elegirnos/page": "/porque-elegirnos",
   "/tienda/page": "/tienda",
   "/ups/page": "/ups"
 }

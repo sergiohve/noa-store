@@ -4,8 +4,8 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/detail-product/page": "app/detail-product/page.js",
   "/page": "app/page.js",
-  "/porque-elegirnos/page": "app/porque-elegirnos/page.js",
   "/sobre-nosotros/page": "app/sobre-nosotros/page.js",
+  "/porque-elegirnos/page": "app/porque-elegirnos/page.js",
   "/tienda/page": "app/tienda/page.js",
   "/ups/page": "app/ups/page.js"
 }
