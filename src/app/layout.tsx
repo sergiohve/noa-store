@@ -13,35 +13,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.noasotonetworks.cl/'), 
+  metadataBase: new URL('https://www.noasotostore.cl/'), 
   alternates: {
     canonical: './',
     languages: {
-      'es-CL': 'https://www.noasotonetworks.cl/',
+      'es-CL': 'https://www.noasotostore.cl/',
     },
   },
   title: {
-    default: "Noa Soto Networks",
-    template: "%s | Noa Soto Networks",
+    default: "Noa Soto Store",
+    template: "%s | Noa Soto Store",
   },
-  description: "Diseñamos y desarrollamos páginas web, e-commerce y aplicaciones móviles. Expertos en soluciones digitales a medida y postventa local en Antofagasta.", // Nueva descripción
+  description: "Tu tienda en línea de confianza. Envíos rápidos y la mejor selección de productos. Calidad y servicio al cliente garantizados.",
   generator: "Next.js",
-  applicationName: "Noa Soto Networks",
+  applicationName: "Noa Soto Store",
   keywords: [
-    "Noa Soto Networks",
-    "diseño web antofagasta",
-    "desarrollo web antofagasta",
-    "páginas web antofagasta",
-    "e-commerce antofagasta",
-    "aplicaciones móviles antofagasta",
-    "agencia digital antofagasta",
-    "desarrollo de software antofagasta",
-    "soluciones digitales chile",
-    "diseñador web antofagasta"
+    "Noa Soto Store",
+    "tienda en línea",
+    "e-commerce",
+    "compras online",
+    "productos",
+    "ofertas",
+    "envíos rápidos",
+    "seguridad en línea",
+    "mejor precio",
+    "variedad de productos"
   ], 
-  authors: [{ name: "Noa Soto Networks", url: "https://www.noasotonetworks.cl/" }],
-  creator: 'Noa Soto Networks',
-  publisher: 'Noa Soto Networks',
+  authors: [{ name: "Noa Soto Store", url: "https://www.noasotostore.cl/" }],
+  creator: 'Noa Soto Store',
+  publisher: 'Noa Soto Store',
   robots: {
     index: true,
     follow: true,
@@ -57,23 +57,23 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/logo' },
+      { url: '/logo-noa-header.png' },
       { url: '/favicon.ico' },
       { url: '/apple-touch-icon.png', rel: 'apple-touch-icon' },
     ],
   },
 
   openGraph: {
-    title: "Noa Soto Networks | Diseño y Desarrollo Digital en Antofagasta",
-    description: "Expertos en la creación de páginas web, tiendas online y apps móviles. Acompañamos tu proyecto de principio a fin.", // Nueva descripción
-    url: "https://www.noasotonetworks.cl/",
-    siteName: "Noa Soto Networks",
+    title: "Noa Soto Store | Tienda en Línea",
+    description: "Encuentra una amplia variedad de productos con las mejores ofertas y promociones. Compras seguras y envíos a todo Chile.",
+    url: "https://www.noasotostore.cl/",
+    siteName: "Noa Soto Store",
     images: [
       {
-        url: "https://www.noasotonetworks.cl/logo-og.png", 
+        url: "/logo-noa-header.png", 
         width: 1200,
         height: 630,
-        alt: "Logo de Noa Soto Networks",
+        alt: "Logo de Noa Soto Store",
       },
     ],
     locale: "es_CL",
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Noa Soto Networks | Diseño y Desarrollo Web en Antofagasta",
-    description: "Somos un equipo antofagastino con más de 10 años de experiencia diseñando y desarrollando soluciones digitales.", // Nueva descripción
-    images: ["https://www.noasotonetworks.cl/logo-twitter.png"],
+    title: "Noa Soto Store | Compras online",
+    description: "Descubre nuestra selección de productos, desde electrónica hasta moda. ¡Compra fácil y seguro!",
+    images: ["https://www.noasotostore.cl/logo-twitter.png"],
   },
 };
 
