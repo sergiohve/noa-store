@@ -3,8 +3,8 @@
   "/api/contact/route": "/api/contact",
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
-  "/porque-elegirnos/page": "/porque-elegirnos",
   "/sobre-nosotros/page": "/sobre-nosotros",
-  "/tienda/page": "/tienda",
-  "/ups/page": "/ups"
+  "/porque-elegirnos/page": "/porque-elegirnos",
+  "/ups/page": "/ups",
+  "/tienda/page": "/tienda"
 }
