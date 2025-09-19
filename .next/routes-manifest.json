@@ -46,6 +46,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/detail-product",
+      "regex": "^/detail\\-product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/detail\\-product(?:/)?$"
+    },
+    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
