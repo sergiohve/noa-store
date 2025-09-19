@@ -7,7 +7,11 @@ import ButtonWhatsApp from "../components/ButtonWhatsApp";
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product, productsData } from "../constants/constants";
+import {
+  Product,
+  productsData,
+} from "../constants/constants";
+import { Button } from "@/components/ui/button";
 
 export const dynamic = "force-dynamic";
 
@@ -74,19 +78,24 @@ const filtersData: FiltersData = {
 };
 
 function UpsContent() {
-  const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
-    factorPotencia: [],
-    capacidadKva: [],
-    capacidadWatts: [],
-    formato: [],
-  });
+  const [selectedFilters, setSelectedFilters] =
+    useState<SelectedFilters>({
+      factorPotencia: [],
+      capacidadKva: [],
+      capacidadWatts: [],
+      formato: [],
+    });
 
   const [filteredProducts, setFilteredProducts] =
     useState<Product[]>(productsData);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] =
+    useState(false);
 
-  const toggleFilter = (filterType: keyof SelectedFilters, value: string) => {
-    setSelectedFilters((prev) => {
+  const toggleFilter = (
+    filterType: keyof SelectedFilters,
+    value: string
+  ) => {
+    setSelectedFilters(prev => {
       const currentFilters = [...prev[filterType]];
       const index = currentFilters.indexOf(value);
 
@@ -121,37 +130,40 @@ function UpsContent() {
           </nav>
         </div>
         <div className="bg-gray-100 rounded-lg p-6 mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">UPS</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            UPS
+          </h1>
           <p className="text-gray-700 mb-4">
             <strong>
-              UPS Enersafe cuenta con UPS Interactivos, Online, trifasicos y
-              modulares
+              UPS Enersafe cuenta con UPS Interactivos,
+              Online, trifasicos y modulares
             </strong>
-            , ofrecemos <strong>respaldo de energia</strong> para distintas
-            areas tales como datacenter, equipamiento medico, mineria
-            telecomunicaciones<strong>,</strong>ademas de una excelente
-            protección eléctrica integral contra alzas de voltage. Nuestras UPS
-            ademas cuentan con el garantias de 3 años.
+            , ofrecemos <strong>respaldo de energia</strong>{" "}
+            para distintas areas tales como datacenter,
+            equipamiento medico, mineria telecomunicaciones
+            <strong>,</strong>ademas de una excelente
+            protección eléctrica integral contra alzas de
+            voltage. Nuestras UPS ademas cuentan con el
+            garantias de 3 años.
           </p>
         </div>
         <div className="lg:hidden mb-4">
           <button
-            onClick={() => setShowMobileFilters(!showMobileFilters)}
-            className="w-full py-2 px-4 bg-[#0066b4] text-white rounded-md flex items-center justify-center"
-          >
+            onClick={() =>
+              setShowMobileFilters(!showMobileFilters)
+            }
+            className="w-full py-2 px-4 bg-[#0066b4] text-white rounded-md flex items-center justify-center">
             <span className="mr-2">Filtros</span>
             <svg
               className="w-4 h-4"
               fill="none"
               stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+              viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-              ></path>
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
             </svg>
           </button>
         </div>
@@ -160,39 +172,46 @@ function UpsContent() {
           <div
             className={`lg:w-1/4 ${
               showMobileFilters ? "block" : "hidden"
-            } lg:block`}
-          >
+            } lg:block`}>
             <div className="bg-white p-5 rounded-lg shadow-md">
-              <h2 className="text-lg font-bold mb-4 text-gray-800">Filtros</h2>
+              <h2 className="text-lg font-bold mb-4 text-gray-800">
+                Filtros
+              </h2>
 
               <div className="mb-6">
                 <h3 className="font-semibold mb-3 text-gray-700">
                   Factor de Potencia
                 </h3>
                 <div className="space-y-2">
-                  {filtersData.factorPotencia.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
-                          checked={selectedFilters.factorPotencia.includes(
-                            item.value
-                          )}
-                          onChange={() =>
-                            toggleFilter("factorPotencia", item.value)
-                          }
-                        />
-                        <span className="ml-2 text-gray-700">{item.value}</span>
-                      </label>
-                      <span className="text-gray-500 text-sm">
-                        ({item.count})
-                      </span>
-                    </div>
-                  ))}
+                  {filtersData.factorPotencia.map(
+                    (item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between">
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
+                            checked={selectedFilters.factorPotencia.includes(
+                              item.value
+                            )}
+                            onChange={() =>
+                              toggleFilter(
+                                "factorPotencia",
+                                item.value
+                              )
+                            }
+                          />
+                          <span className="ml-2 text-gray-700">
+                            {item.value}
+                          </span>
+                        </label>
+                        <span className="text-gray-500 text-sm">
+                          ({item.count})
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -201,29 +220,35 @@ function UpsContent() {
                   Capacidad Kva
                 </h3>
                 <div className="space-y-2">
-                  {filtersData.capacidadKva.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
-                          checked={selectedFilters.capacidadKva.includes(
-                            item.value
-                          )}
-                          onChange={() =>
-                            toggleFilter("capacidadKva", item.value)
-                          }
-                        />
-                        <span className="ml-2 text-gray-700">{item.value}</span>
-                      </label>
-                      <span className="text-gray-500 text-sm">
-                        ({item.count})
-                      </span>
-                    </div>
-                  ))}
+                  {filtersData.capacidadKva.map(
+                    (item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between">
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
+                            checked={selectedFilters.capacidadKva.includes(
+                              item.value
+                            )}
+                            onChange={() =>
+                              toggleFilter(
+                                "capacidadKva",
+                                item.value
+                              )
+                            }
+                          />
+                          <span className="ml-2 text-gray-700">
+                            {item.value}
+                          </span>
+                        </label>
+                        <span className="text-gray-500 text-sm">
+                          ({item.count})
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -232,53 +257,71 @@ function UpsContent() {
                   Capacidad Watts
                 </h3>
                 <div className="space-y-2">
-                  {filtersData.capacidadWatts.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
-                          checked={selectedFilters.capacidadWatts.includes(
-                            item.value
-                          )}
-                          onChange={() =>
-                            toggleFilter("capacidadWatts", item.value)
-                          }
-                        />
-                        <span className="ml-2 text-gray-700">{item.value}</span>
-                      </label>
-                      <span className="text-gray-500 text-sm">
-                        ({item.count})
-                      </span>
-                    </div>
-                  ))}
+                  {filtersData.capacidadWatts.map(
+                    (item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between">
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
+                            checked={selectedFilters.capacidadWatts.includes(
+                              item.value
+                            )}
+                            onChange={() =>
+                              toggleFilter(
+                                "capacidadWatts",
+                                item.value
+                              )
+                            }
+                          />
+                          <span className="ml-2 text-gray-700">
+                            {item.value}
+                          </span>
+                        </label>
+                        <span className="text-gray-500 text-sm">
+                          ({item.count})
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
               <div className="mb-6">
-                <h3 className="font-semibold mb-3 text-gray-700">Formato</h3>
+                <h3 className="font-semibold mb-3 text-gray-700">
+                  Formato
+                </h3>
                 <div className="space-y-2">
-                  {filtersData.formato.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
-                          checked={selectedFilters.formato.includes(item.value)}
-                          onChange={() => toggleFilter("formato", item.value)}
-                        />
-                        <span className="ml-2 text-gray-700">{item.value}</span>
-                      </label>
-                      <span className="text-gray-500 text-sm">
-                        ({item.count})
-                      </span>
-                    </div>
-                  ))}
+                  {filtersData.formato.map(
+                    (item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between">
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#0066b4] rounded focus:ring-[#0066b4]"
+                            checked={selectedFilters.formato.includes(
+                              item.value
+                            )}
+                            onChange={() =>
+                              toggleFilter(
+                                "formato",
+                                item.value
+                              )
+                            }
+                          />
+                          <span className="ml-2 text-gray-700">
+                            {item.value}
+                          </span>
+                        </label>
+                        <span className="text-gray-500 text-sm">
+                          ({item.count})
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -295,11 +338,10 @@ function UpsContent() {
 
           <div className="lg:w-3/4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => (
+              {filteredProducts.map(product => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform hover:scale-105"
-                >
+                  className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform hover:scale-105">
                   <div className="p-4">
                     <Image
                       src={product.image}
@@ -314,9 +356,11 @@ function UpsContent() {
                     <p className="text-gray-600 text-xs mb-4">
                       SKU: {product.sku}
                     </p>
-                    <button className="w-full py-2 bg-[#90D116] text-white rounded-md hover:bg-[#72A612] transition mt-auto ">
-                      Añadir a la Cotización
-                    </button>
+                    <div className="flex w-full">
+                      <Button className="bg-[#90D116] break-words w-full">
+                        Añadir a la Cotización
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -339,8 +383,7 @@ export default function Ups() {
         <div className="flex justify-center items-center h-screen bg-gray-100">
           <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#0066b4]"></div>
         </div>
-      }
-    >
+      }>
       <UpsContent />
     </Suspense>
   );
