@@ -60,18 +60,18 @@ export function CartItem({ id, quantity }: CartItemProps) {
 
           <div className="flex flex-col items-center gap-2">
             <Plus
-              className="text-emerald-600 h-4 w-4 hover:scale-[1.1] cursor-pointer transition-all"
+              className="text-neutral-800 h-4 w-4 hover:scale-[1.1] cursor-pointer transition-all"
               onClick={handleAdd}
             />
 
             <Badge
               variant="secondary"
-              className="text-sm min-w-8 justify-center text-white bg-emerald-400 pointer-events-none select-none">
+              className="text-sm min-w-8 justify-center text-white bg-neutral-800 pointer-events-none select-none font-semibold">
               {quantity}
             </Badge>
 
             <Minus
-              className="h-4 w-4 text-rose-500 hover:scale-[1.1] cursor-pointer transition-all"
+              className="h-4 w-4 text-neutral-800 hover:scale-[1.1] cursor-pointer transition-all"
               onClick={handleRemove}
               style={{ opacity: quantity <= 1 ? 0.5 : 1 }}
             />

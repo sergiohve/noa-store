@@ -16,12 +16,18 @@ import { CartItem } from "./CartItem";
 import Image from "next/image";
 import { ShoppingCartIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
 
 export function Cart() {
   const items = useCartStore(state => state.items);
   const totalItems = useCartStore(state =>
     state.totalItems()
   );
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <Sheet>
@@ -29,8 +35,8 @@ export function Cart() {
         <div className="relative cursor-pointer">
           <ShoppingCartIcon className="h-9 w-9 text-neutral-700 hover:scale-[1.1] transition-all cursor-pointer" />
 
-          {totalItems !== 0 && (
-            <Badge className="absolute -top-1 -right-2 bg-orange-300 min-w-6 h-5 flex items-center justify-center p-0 border-3 border-white">
+          {isMounted && totalItems !== 0 && (
+            <Badge className="absolute -top-1 -right-2 bg-orange-400 min-w-6 h-5 flex items-center justify-center p-0 border-3 border-white">
               {totalItems}
             </Badge>
           )}

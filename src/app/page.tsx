@@ -42,7 +42,6 @@ function HomeContent() {
       <Header />
 
       <section className="relative w-full h-screen bg-[#1A1A1A] overflow-hidden">
-      
         <div className="absolute inset-0 z-0">
           <Image
             src="/background.png"
@@ -54,14 +53,14 @@ function HomeContent() {
           />
         </div>
 
-
         <div className="relative z-20 container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
           <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-tight">
               Productos de Energía Confiable para tu Negocio
             </h2>
             <p className="text-sm sm:text-lg mb-6">
-              Explora nuestro catálogo de equipos UPS, baterías, y soluciones de cooling.
+              Explora nuestro catálogo de equipos UPS, baterías, y soluciones de
+              cooling.
             </p>
             <a
               href="/tienda"
@@ -101,7 +100,8 @@ function HomeContent() {
                 Encuentra el Equipo Perfecto
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Desde soluciones para centros de datos hasta protección para el hogar, contamos con el equipo que necesitas.
+                Desde soluciones para centros de datos hasta protección para el
+                hogar, contamos con el equipo que necesitas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -121,18 +121,83 @@ function HomeContent() {
           <h2 className="text-3xl font-bold text-center mb-12">
             Explora Nuestras Categorías
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "UPS", image: "/ups.png", link: "/ups" },
+              {
+                name: "Equipos de Climatización",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2025/04/FAMILIA-EQUIPOS-AIRSAFE.png",
+                link: "/ups?tipo=clima-precision",
+              },
+              {
+                name: "Gabinete Outdoor",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2025/08/S-M-L.png",
+                link: "/ups?tipo=gabinete",
+              },
+              {
+                name: "UPS",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/6.png",
+                link: "/ups",
+              },
+              {
+                name: "Accesorios para UPS",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/1.png",
+                link: "/ups?tipo=accesorios",
+              },
+              {
+                name: "Bancos de Baterías",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/2.png",
+                link: "/ups?tipo=bancos-baterias",
+              },
+              {
+                name: "Baterías",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/3.png",
+                link: "/ups?tipo=baterias",
+              },
+              {
+                name: "Estabilizadores de Voltaje",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/4.png",
+                link: "/ups?tipo=estabilizadores-de-voltaje",
+              },
+              {
+                name: "Datacenter",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/06/datacenter.jpeg",
+                link: "/ups?tipo=baterias",
+              },
+              {
+                name: "Rack de Comunicaciones",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-rack.png",
+                link: "/ups?tipo=rack-comunicaciones",
+              },
+              {
+                name: "Inversores",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-inversores.png",
+                link: "/ups?tipo=inversores",
+              },
             ].map((category, index) => (
               <a
                 key={index}
                 href={category.link}
                 className="group block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition"
               >
-                <div className="relative h-48">
-                  <Image src={category.image} alt={category.name} fill />
-                  <div className="absolute inset-0 bg-gray-800 opacity-40 hover:opacity-20 hover:bg-gray-500"></div>
+                <div className="relative h-48 bg-white flex items-center justify-center">
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    width={200}
+                    height={150}
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gray-800 opacity-40 group-hover:opacity-20 transition-opacity"></div>
                   <div className="absolute inset-0 flex items-end">
                     <h3 className="text-white text-xl font-semibold p-4">
                       {category.name}
