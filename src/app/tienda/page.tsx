@@ -42,37 +42,6 @@ function TiendaContent() {
 
         <div className="flex flex-col  gap-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  xl:grid-cols-4">
-            {/* {productsData.map(product => (
-                <div
-                  key={product.id}
-                  className="bg-white min-h-92 rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform hover:scale-105">
-                  <div className="p-4 flex flex-col justify-between">
-                    <Link
-                      href={`/detail-product?id=${product.id}`}>
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={300}
-                        height={192}
-                        className="w-full h-48 object-contain mb-4"
-                      />
-                      <h3 className="font-semibold text-gray-800 mb-2 hover:text-[#72A612] cursor-pointer">
-                        {product.name}
-                      </h3>
-                    </Link>
-                    <p className="text-gray-600 text-sm mb-4">
-                      {product.sku}
-                    </p>
-                    <Button
-                      className="bg-[#90D116] w-full text-white hover:bg-[#72A612] cursor-pointer 
-                      active:scale-95 active:bg-[#5E8F0E] transition-all duration-50 
-                      transform hover:scale-101 shadow-md hover:shadow-lg"
-                      onClick={() => addItem(product.id)}>
-                      Añadir a la Cotización
-                    </Button>
-                  </div>
-                </div>
-              ))} */}
             {productsData.map(product => (
               <ProductCard
                 key={product.id}

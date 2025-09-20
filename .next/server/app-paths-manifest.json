@@ -1,11 +1,4 @@
 {
-  "/api/contact/route": "app/api/contact/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/detail-product/page": "app/detail-product/page.js",
-  "/tienda/page": "app/tienda/page.js",
-  "/porque-elegirnos/page": "app/porque-elegirnos/page.js",
-  "/sobre-nosotros/page": "app/sobre-nosotros/page.js",
-  "/ups/page": "app/ups/page.js"
+  "/tienda/page": "app/tienda/page.js"
 }

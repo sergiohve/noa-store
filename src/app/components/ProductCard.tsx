@@ -52,7 +52,6 @@ export function ProductCard({
           />
         </div>
 
-        {/* Top right badges */}
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-2">
           <Badge className="bg-yellow-300 hover:bg-amber-700 text-neutral-800 px-2 py-1 text-[9px] justify-center items-center flex text-center">
             {category.toUpperCase()}
@@ -77,7 +76,6 @@ export function ProductCard({
           </p>
         </CardHeader>
 
-        {/* This empty div will push the footer to the bottom */}
         <div className="flex-grow"></div>
 
         <CardFooter className="flex justify-between border-t pt-4 flex-shrink-0">
