@@ -9,19 +9,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "../store/cartStore";
-import { Product, productsData } from "../constants/constants";
+import {
+  Product,
+  productsData,
+} from "../constants/constants";
 import { useSearchParams } from "next/navigation";
 
 function ProductDetailContent() {
-  const addItem = useCartStore((state) => state.addItem);
+  const addItem = useCartStore(state => state.addItem);
   const searchParams = useSearchParams();
   const productId = searchParams.get("id");
 
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<Product | null>(
+    null
+  );
 
   useEffect(() => {
     if (productId) {
-      const search = productsData.find((item) => item.id === Number(productId));
+      const search = productsData.find(
+        item => item.id === Number(productId)
+      );
       if (search) {
         setProduct(search);
       } else {
@@ -36,7 +43,9 @@ function ProductDetailContent() {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-100">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#90D116]"></div>
-        <p className="ml-4 text-gray-700">Cargando o producto no encontrado...</p>
+        <p className="ml-4 text-gray-700">
+          Cargando o producto no encontrado...
+        </p>
       </div>
     );
   }
@@ -45,17 +54,23 @@ function ProductDetailContent() {
     <>
       <Header />
       <main className="relative z-10 mx-auto pt-3 pb-12 mt-40 max-w-6xl px-4 lg:px-5">
-        <div className="mb-6 text-sm">
-          <nav className="text-gray-600">
-            <Link href="/" className="hover:text-[#90D116]">
+        <div className="mb-6 text-sm hover:text-emerald-500">
+          <nav className="text-white">
+            <Link
+              href="/"
+              className="hover:text-emerald-500">
               Inicio
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/tienda" className="hover:text-[#90D116]">
+            <Link
+              href="/tienda"
+              className="hover:text-emerald-500">
               Productos
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">{product.name}</span>
+            <span className="text-gray-900">
+              {product.name}
+            </span>
           </nav>
         </div>
 
@@ -77,10 +92,14 @@ function ProductDetailContent() {
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 {product.name}
               </h1>
-              <p className="text-xl text-gray-700 mb-4">SKU: {product.sku}</p>
+              <p className="text-xl text-gray-700 mb-4">
+                SKU: {product.sku}
+              </p>
               <div className="border-t border-gray-200 pt-4 mb-4">
                 <p className="text-gray-600">
-                  <span className="font-semibold">Categoría:</span>{" "}
+                  <span className="font-semibold">
+                    Categoría:
+                  </span>{" "}
                   {product.category}
                 </p>
                 <p className="mt-4 text-gray-800 leading-relaxed">
@@ -90,11 +109,9 @@ function ProductDetailContent() {
             </div>
 
             <Button
-              className="bg-[#90D116] w-full text-white hover:bg-[#72A612] cursor-pointer 
-            active:scale-95 active:bg-[#5E8F0E] transition-all duration-50 
-            transform hover:scale-101 shadow-md hover:shadow-lg mt-6"
-              onClick={() => addItem(product.id)}
-            >
+              className="bg-emerald-400 hover:bg-emerald-600  select-none cursor-pointer active:scale-[0.9] scale-100"
+              type="submit"
+              onClick={() => addItem(product.id)}>
               Añadir a la Cotización
             </Button>
           </div>
@@ -115,8 +132,7 @@ export default function ProductDetail() {
         <div className="flex justify-center items-center h-screen bg-gray-100">
           <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#90D116]"></div>
         </div>
-      }
-    >
+      }>
       <ProductDetailContent />
     </Suspense>
   );

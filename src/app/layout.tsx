@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Montserrat,
+} from "next/font/google";
 import "./globals.css";
-
+import { Toaster } from "@/components/ui/sonner";
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"></link>;
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -9,6 +16,10 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -109,8 +120,10 @@ export default function RootLayout({
   return (
     <html
       lang="es-CL"
-      className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}>
+      <body suppressHydrationWarning>
+        {children} <Toaster />
+      </body>
     </html>
   );
 }
