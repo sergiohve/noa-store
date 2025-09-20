@@ -98,7 +98,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Projects\\noa-store\\noa-store",
+    "outputFileTracingRoot": "C:\\Users\\Usuario\\Pictures\\Portafolio pagina web",
     "experimental": {
       "useSkewCookie": false,
       "nodeMiddleware": false,
@@ -157,7 +157,7 @@
       "middlewarePrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 11,
+      "cpus": 7,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -289,10 +289,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "C:\\Projects\\noa-store\\noa-store"
+      "root": "C:\\Users\\Usuario\\Pictures\\Portafolio pagina web"
     }
   },
-  "appDir": "C:\\Projects\\noa-store\\noa-store",
+  "appDir": "C:\\Users\\Usuario\\Pictures\\Portafolio pagina web",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

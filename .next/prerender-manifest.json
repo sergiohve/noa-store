@@ -78,6 +78,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/ups": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/ups",
+      "dataRoute": "/ups.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/porque-elegirnos": {
       "experimentalBypassFor": [
         {
@@ -93,30 +117,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/porque-elegirnos",
       "dataRoute": "/porque-elegirnos.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/tienda": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/tienda",
-      "dataRoute": "/tienda.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -150,7 +150,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ups": {
+    "/tienda": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -163,8 +163,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/ups",
-      "dataRoute": "/ups.rsc",
+      "srcRoute": "/tienda",
+      "dataRoute": "/tienda.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -178,8 +178,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "ac73df2d18c230752be95cd6a1185fa9",
-    "previewModeSigningKey": "74d4707f8809963c5b413a661ef8b8e0d24ca356c717059cc20e7b62aba09dcb",
-    "previewModeEncryptionKey": "8d5e15bd860093e800da8c74b0b147e1177cb8ed8d20346d0e8e8fd2dcfb0327"
+    "previewModeId": "10742c7d6254952c5cdaf02236517a64",
+    "previewModeSigningKey": "874d7c3a3c4db6b327fab9326e6d918c708296ced025c533d969fce2cdc6dc07",
+    "previewModeEncryptionKey": "88755a7348a317cdaa73c4e236d683f66248e40716aa72066dc1defa65c42ebc"
   }
 }
