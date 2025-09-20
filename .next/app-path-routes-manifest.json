@@ -1,11 +1,11 @@
 {
-  "/_not-found/page": "/_not-found",
   "/api/contact/route": "/api/contact",
+  "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
-  "/page": "/",
   "/detail-product/page": "/detail-product",
+  "/page": "/",
   "/porque-elegirnos/page": "/porque-elegirnos",
+  "/sobre-nosotros/page": "/sobre-nosotros",
   "/tienda/page": "/tienda",
-  "/ups/page": "/ups",
-  "/sobre-nosotros/page": "/sobre-nosotros"
+  "/ups/page": "/ups"
 }

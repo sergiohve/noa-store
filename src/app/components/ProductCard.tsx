@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { Eye, BarChart3 } from "lucide-react";
+import { Eye, BarChart3, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 interface ProductCardProps {
@@ -53,11 +53,11 @@ export function ProductCard({
         </div>
 
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-2">
-          <Badge className="bg-yellow-300 hover:bg-amber-700 text-neutral-800 px-2 py-1 text-[9px] justify-center items-center flex text-center">
+          <Badge className="bg-orange-400 cursor-default text-neutral-800 px-2 py-1 text-[9px] justify-center items-center flex text-center">
             {category.toUpperCase()}
           </Badge>
           {kva ? (
-            <Badge className="bg-neutral-800 hover:bg-blue-700 text-white px-2 py-1 text-[9px] justify-center items-center flex text-center">
+            <Badge className="bg-neutral-800 cursor-default text-white px-2 py-1 text-[9px] justify-center items-center flex text-center">
               {kva} kVA
             </Badge>
           ) : null}
@@ -82,14 +82,15 @@ export function ProductCard({
           <Button
             variant="outline"
             onClick={onDetails}
-            className="flex items-center gap-1 transition-all hover:gap-2 text-xs h-8">
+            className="flex items-center gap-1 transition-all hover:gap-2 text-xs h-8 cursor-pointer active:scale-[0.9] scale-100">
             <Eye className="h-3 w-3" />
             Details
           </Button>
           <Button
             onClick={onQuote}
-            className="flex items-center gap-1 bg-emerald-400 hover:bg-emerald-500 transition-all hover:gap-2 text-xs h-8">
-            + Cotizar
+            className="flex items-center gap-1 bg-emerald-400 hover:bg-emerald-500 transition-all hover:gap-2 text-xs h-8 cursor-pointer active:scale-[0.9] scale-100 
+            ">
+            <ShoppingCart className="h-3 w-3" /> Cotizar
           </Button>
         </CardFooter>
       </div>
