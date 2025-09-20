@@ -7,76 +7,24 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ButtonWhatsApp from "../components/ButtonWhatsApp";
 import { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { productsData } from "../constants/constants";
-import { Button } from "@/components/ui/button";
 import { useCartStore } from "../store/cartStore";
+import { ProductCard } from "../components/ProductCard";
 
 export const dynamic = "force-dynamic";
-
-interface FilterItem {
-  value: string;
-  count: number | string;
-}
-
-interface FiltersData {
-  factorPotencia: FilterItem[];
-  capacidadKva: FilterItem[];
-}
 
 interface SelectedFilters {
   factorPotencia: string[];
   capacidadKva: string[];
 }
 
-const filtersData: FiltersData = {
-  factorPotencia: [
-    { value: "0.6", count: 4 },
-    { value: "0.9", count: 28 },
-    { value: "0.8", count: 7 },
-    { value: "1", count: 7 },
-  ],
-  capacidadKva: [
-    { value: "5", count: 1 },
-    { value: "10", count: 5 },
-    { value: "20", count: 4 },
-    { value: "30", count: 2 },
-    { value: "100", count: 2 },
-    { value: "50", count: 1 },
-    { value: "60", count: 1 },
-    { value: "+90", count: ">" },
-  ],
-};
-
 function TiendaContent() {
   const addItem = useCartStore(state => state.addItem);
-  const [selectedFilters, setSelectedFilters] =
-    useState<SelectedFilters>({
-      factorPotencia: [],
-      capacidadKva: [],
-    });
-
-  const toggleFilter = (
-    filterType: keyof SelectedFilters,
-    value: string
-  ) => {
-    setSelectedFilters(prev => {
-      const currentFilters = [...prev[filterType]];
-      const index = currentFilters.indexOf(value);
-
-      if (index > -1) {
-        currentFilters.splice(index, 1);
-      } else {
-        currentFilters.push(value);
-      }
-
-      return {
-        ...prev,
-        [filterType]: currentFilters,
-      };
-    });
-  };
+  useState<SelectedFilters>({
+    factorPotencia: [],
+    capacidadKva: [],
+  });
 
   return (
     <>
@@ -92,101 +40,15 @@ function TiendaContent() {
           </nav>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/4">
-            <div className="bg-white p-5 rounded-lg shadow-md">
-              <h2 className="text-lg font-bold mb-4 text-gray-800">
-                Filtros
-              </h2>
-
-              <div className="mb-6">
-                <h3 className="font-semibold mb-3 text-gray-700">
-                  Factor de Potencia
-                </h3>
-                <div className="space-y-2">
-                  {filtersData.factorPotencia.map(
-                    (item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between">
-                        <label className="flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            className="w-4 h-4 text-[#90D116] rounded focus:ring-[#90D116]"
-                            checked={selectedFilters.factorPotencia.includes(
-                              item.value
-                            )}
-                            onChange={() =>
-                              toggleFilter(
-                                "factorPotencia",
-                                item.value
-                              )
-                            }
-                          />
-                          <span className="ml-2 text-gray-700">
-                            {item.value}
-                          </span>
-                        </label>
-                        <span className="text-gray-500 text-sm">
-                          ({item.count})
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="font-semibold mb-3 text-gray-700">
-                  Capacidad Kva
-                </h3>
-                <div className="space-y-2">
-                  {filtersData.capacidadKva.map(
-                    (item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between">
-                        <label className="flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            className="w-4 h-4 text-[#90D116] rounded focus:ring-[#90D116]"
-                            checked={selectedFilters.capacidadKva.includes(
-                              item.value
-                            )}
-                            onChange={() =>
-                              toggleFilter(
-                                "capacidadKva",
-                                item.value
-                              )
-                            }
-                          />
-                          <span className="ml-2 text-gray-700">
-                            {item.value}
-                          </span>
-                        </label>
-                        <span className="text-gray-500 text-sm">
-                          ({item.count})
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <button className="w-full py-2 bg-[#90D116] text-white rounded-md hover:bg-[#72A612] transition">
-                Aplicar Filtros
-              </button>
-            </div>
-          </div>
-
-          <div className="lg:w-3/4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-              {productsData.map(product => (
+        <div className="flex flex-col  gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  xl:grid-cols-4">
+            {/* {productsData.map(product => (
                 <div
                   key={product.id}
                   className="bg-white min-h-92 rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform hover:scale-105">
                   <div className="p-4 flex flex-col justify-between">
-                    <Link href={`/detail-product?id=${product.id}`}>
+                    <Link
+                      href={`/detail-product?id=${product.id}`}>
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -210,8 +72,21 @@ function TiendaContent() {
                     </Button>
                   </div>
                 </div>
-              ))}
-            </div>
+              ))} */}
+            {productsData.map(product => (
+              <ProductCard
+                key={product.id}
+                image={product.image}
+                title={product.name}
+                category={product.category}
+                kva={product.kva ?? ""}
+                sku={product.sku}
+                onDetails={() =>
+                  (window.location.href = `/detail-product?id=${product.id}`)
+                }
+                onQuote={() => addItem(product.id)}
+              />
+            ))}
           </div>
         </div>
       </main>

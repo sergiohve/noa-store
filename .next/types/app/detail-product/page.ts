@@ -1,4 +1,4 @@
-// File: C:\Users\Usuario\Pictures\Portafolio pagina web\src\app\detail-product\page.tsx
+// File: C:\Projects\noa-store\noa-store\src\app\detail-product\page.tsx
 import * as entry from '../../../../src/app/detail-product/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

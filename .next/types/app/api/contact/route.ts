@@ -1,4 +1,4 @@
-// File: C:\Users\Usuario\Pictures\Portafolio pagina web\src\app\api\contact\route.ts
+// File: C:\Projects\noa-store\noa-store\src\app\api\contact\route.ts
 import * as entry from '../../../../../src/app/api/contact/route.js'
 import type { NextRequest } from 'next/server.js'
 

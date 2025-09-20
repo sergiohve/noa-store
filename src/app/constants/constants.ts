@@ -5,6 +5,7 @@ export interface Product {
   image: string;
   category: string;
   description: string;
+  kva?: number;
 }
 
 export const productsData: Product[] = [
@@ -13,15 +14,16 @@ export const productsData: Product[] = [
     name: "UPS ESOL TRI PT 10KVA Pantalla Touch Full Color",
     sku: "UPSESESOLTRIPT10CB",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPSESESOLTRIPT30SB-300x300.jpg",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 10KVA con pantalla táctil a color para monitoreo y control avanzado del sistema de energía"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 10KVA con pantalla táctil a color para monitoreo y control avanzado del sistema de energía",
+    kva: 10
   },
   {
     id: 2,
     name: "Banco de Baterías ESOL TRI PT 80X9ah",
     sku: "BPESOLTRIPTS/B",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/EnerSafe-Banco-de-Baterias-1-300x300.png",
-    category: "ups-trifasicas",
+    category: "ups-trifásico ",
     description: "Banco de baterías de 80 unidades de 9Ah para sistemas UPS trifásicos de alta capacidad"
   },
   {
@@ -30,7 +32,8 @@ export const productsData: Product[] = [
     sku: "MODSAFE20PM",
     image: "https://enersafelatam.com/wp-content/uploads/2023/12/Enersafe80-300x300.jpg",
     category: "ups-modulares",
-    description: "Módulo de potencia de 20kW para sistemas UPS modulares escalables"
+    description: "Módulo de potencia de 20kW para sistemas UPS modulares escalables",
+    kva: 20
   },
   {
     id: 4,
@@ -38,7 +41,8 @@ export const productsData: Product[] = [
     sku: "MODSAFE1020KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/ENERSAFE-60-scaled-1-300x300.jpg",
     category: "ups-modulares",
-    description: "Chasis para sistema UPS modular con capacidad de expansión hasta 200kW"
+    description: "Chasis para sistema UPS modular con capacidad de expansión hasta 200kW",
+    kva: 200
   },
   {
     id: 5,
@@ -46,7 +50,8 @@ export const productsData: Product[] = [
     sku: "MODSAFE520KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/ENERSAFE-60-scaled-1-300x300.jpg",
     category: "ups-modulares",
-    description: "Chasis para sistema UPS modular con capacidad de expansión hasta 60kW"
+    description: "Chasis para sistema UPS modular con capacidad de expansión hasta 60kW",
+    kva: 60
   },
   {
     id: 6,
@@ -54,7 +59,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTH1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 1KVA con tecnología de doble conversión y 36VDC para máxima protección"
+    description: "UPS online de 1KVA con tecnología de doble conversión y 36VDC para máxima protección",
+    kva: 1
   },
   {
     id: 7,
@@ -62,7 +68,8 @@ export const productsData: Product[] = [
     sku: "UPSEOLTE1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-online-Esol-TE--300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 1KVA con eficiencia energética y protección contra fluctuaciones de voltaje"
+    description: "UPS online de 1KVA con eficiencia energética y protección contra fluctuaciones de voltaje",
+    kva: 1
   },
   {
     id: 8,
@@ -70,7 +77,8 @@ export const productsData: Product[] = [
     sku: "UPSESESIT600VA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-interactiva-Esit-600va-2-300x300.jpg",
     category: "ups-interactivas",
-    description: "UPS interactiva de 600VA ideal para equipos de oficina y computadoras personales"
+    description: "UPS interactiva de 600VA ideal para equipos de oficina y computadoras personales",
+    kva: 0.6
   },
   {
     id: 9,
@@ -78,7 +86,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRT48V2K",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 2KVA con configuración de 48VDC para aplicaciones críticas"
+    description: "UPS online de 2KVA con configuración de 48VDC para aplicaciones críticas",
+    kva: 2
   },
   {
     id: 10,
@@ -86,7 +95,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTHC2KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 2KVA con sistema de 72VDC para mayor autonomía y rendimiento"
+    description: "UPS online de 2KVA con sistema de 72VDC para mayor autonomía y rendimiento",
+    kva: 2
   },
   {
     id: 11,
@@ -94,7 +104,8 @@ export const productsData: Product[] = [
     sku: "UPSOLTE10KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe60-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 10KVA para protección de equipos críticos en entornos empresariales"
+    description: "UPS online de 10KVA para protección de equipos críticos en entornos empresariales",
+    kva: 10
   },
   {
     id: 12,
@@ -102,7 +113,8 @@ export const productsData: Product[] = [
     sku: "UPSOLTE6KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe60-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 6KVA con alta eficiencia y protección integral de energía"
+    description: "UPS online de 6KVA con alta eficiencia y protección integral de energía",
+    kva: 6
   },
   {
     id: 13,
@@ -118,7 +130,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTHC1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online compacta de 1KVA con configuración de 24VDC para espacios reducidos"
+    description: "UPS online compacta de 1KVA con configuración de 24VDC para espacios reducidos",
+    kva: 1
   },
   {
     id: 15,
@@ -126,7 +139,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTHC3KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 3KVA con sistema de 72VDC para aplicaciones de media potencia"
+    description: "UPS online de 3KVA con sistema de 72VDC para aplicaciones de media potencia",
+    kva: 3
   },
   {
     id: 16,
@@ -134,7 +148,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTHC3KVA120VAC",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 3KVA compatible con sistemas de 120VAC"
+    description: "UPS online de 3KVA compatible con sistemas de 120VAC",
+    kva: 3
   },
   {
     id: 17,
@@ -142,7 +157,8 @@ export const productsData: Product[] = [
     sku: "UPSBATRT10KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2025/04/1-RTHC6KVA-con-sombra-300x300.jpg",
     category: "ups-online",
-    description: "UPS profesional de 10KVA con características avanzadas para centros de datos"
+    description: "UPS profesional de 10KVA con características avanzadas para centros de datos",
+    kva: 10
   },
   {
     id: 18,
@@ -150,7 +166,8 @@ export const productsData: Product[] = [
     sku: "UPSBATRT6KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2025/04/1-RTHC6KVA-con-sombra-300x300.jpg",
     category: "ups-online",
-    description: "UPS profesional de 6KVA con tecnología de punta y alta confiabilidad"
+    description: "UPS profesional de 6KVA con tecnología de punta y alta confiabilidad",
+    kva: 6
   },
   {
     id: 19,
@@ -158,7 +175,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTHCLR10KVA_",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 10KVA configurado para long run, se vende sin baterías"
+    description: "UPS online de 10KVA configurado para long run, se vende sin baterías",
+    kva: 10
   },
   {
     id: 20,
@@ -166,7 +184,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTCLR6KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 6KVA para autonomía extendida, se entrega sin paquete de baterías"
+    description: "UPS online de 6KVA para autonomía extendida, se entrega sin paquete de baterías",
+    kva: 6
   },
   {
     id: 21,
@@ -174,7 +193,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTHCLR1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online compacta de 1KVA para long run en 24VDC, sin baterías incluidas"
+    description: "UPS online compacta de 1KVA para long run en 24VDC, sin baterías incluidas",
+    kva: 1
   },
   {
     id: 22,
@@ -182,7 +202,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTHCLR3KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 3KVA configurada para autonomía extendida en 72VDC, sin baterías"
+    description: "UPS online de 3KVA configurada para autonomía extendida en 72VDC, sin baterías",
+    kva: 3
   },
   {
     id: 23,
@@ -222,7 +243,8 @@ export const productsData: Product[] = [
     sku: "BPESOLRTH-1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/Enersafe81_logo-nuevo-300x300.jpg",
     category: "baterias",
-    description: "Banco de baterías preensamblado para UPS ESOL RTH de 1KVA"
+    description: "Banco de baterías preensamblado para UPS ESOL RTH de 1KVA",
+    kva: 1
   },
   {
     id: 28,
@@ -230,7 +252,8 @@ export const productsData: Product[] = [
     sku: "BPESOLRT2/3KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/Enersafe81_logo-nuevo-300x300.jpg",
     category: "baterias",
-    description: "Banco de baterías para UPS ESOL RTH de 2KVA y 3KVA"
+    description: "Banco de baterías para UPS ESOL RTH de 2KVA y 3KVA",
+    kva: 2.5
   },
   {
     id: 29,
@@ -302,7 +325,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTHL1KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 1KVA con batería de ion litio para mayor duración y menor peso"
+    description: "UPS online de 1KVA con batería de ion litio para mayor duración y menor peso",
+    kva: 1
   },
   {
     id: 38,
@@ -310,7 +334,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTHL2KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 2KVA con tecnología de ion litio para aplicaciones eficientes"
+    description: "UPS online de 2KVA con tecnología de ion litio para aplicaciones eficientes",
+    kva: 2
   },
   {
     id: 39,
@@ -318,7 +343,8 @@ export const productsData: Product[] = [
     sku: "UPSESESOLRTHL3KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe42-768x768.jpg",
     category: "ups-online",
-    description: "UPS online de 3KVA con baterías de ion litio, ideal para espacios reducidos"
+    description: "UPS online de 3KVA con baterías de ion litio, ideal para espacios reducidos",
+    kva: 3
   },
   {
     id: 40,
@@ -326,7 +352,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLTE2KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-online-Esol-TE--300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 2KVA con alta eficiencia y protección integral de energía"
+    description: "UPS online de 2KVA con alta eficiencia y protección integral de energía",
+    kva: 2
   },
   {
     id: 41,
@@ -334,7 +361,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLTE3KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-online-Esol-TE--300x300.jpg",
     category: "ups-online",
-    description: "UPS online de 3KVA para protección de equipos sensibles y críticos"
+    description: "UPS online de 3KVA para protección de equipos sensibles y críticos",
+    kva: 3
   },
   {
     id: 42,
@@ -342,7 +370,8 @@ export const productsData: Product[] = [
     sku: "BPEESOLTRIRT240",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/EnerSafe-Banco-de-Baterias-1-300x300.png",
     category: "baterias",
-    description: "Banco de baterías con 40 unidades de 12V9Ah para UPS trifásico de 20KVA"
+    description: "Banco de baterías con 40 unidades de 12V9Ah para UPS trifásico de 20KVA",
+    kva: 20
   },
   {
     id: 43,
@@ -350,7 +379,8 @@ export const productsData: Product[] = [
     sku: "UPSIMICRO1000",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-interactiva-Esit-1000va-2-300x300.jpg",
     category: "ups-interactivas",
-    description: "UPS interactiva de 1000VA para protección básica de equipos electrónicos"
+    description: "UPS interactiva de 1000VA para protección básica de equipos electrónicos",
+    kva: 1
   },
   {
     id: 44,
@@ -358,7 +388,8 @@ export const productsData: Product[] = [
     sku: "UPSIMICRO2000",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-interactiva-Esit-2000va-2-300x300.jpg",
     category: "ups-interactivas",
-    description: "UPS interactiva de 2000VA para protección de equipos de oficina y pequeños servidores"
+    description: "UPS interactiva de 2000VA para protección de equipos de oficina y pequeños servidores",
+    kva: 2
   },
   {
     id: 45,
@@ -366,47 +397,53 @@ export const productsData: Product[] = [
     sku: "UPSMODSUBR80G",
     image: "https://enersafelatam.com/wp-content/uploads/2023/07/Enersafe78-300x300.jpg",
     category: "ups-modulares",
-    description: "Subrack para sistema UPS modular con capacidad de hasta 80kW"
+    description: "Subrack para sistema UPS modular con capacidad de hasta 80kW",
+    kva: 80
   },
   {
     id: 46,
     name: "UPS ESOL TRI PT 20KVA Pantalla Touch Full Color",
     sku: "UPSESESOLTRIPT20CB",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPSESESOLTRIPT30SB-768x768.jpg",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 20KVA con pantalla táctil a color para gestión avanzada"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 20KVA con pantalla táctil a color para gestión avanzada",
+    kva: 20
   },
   {
     id: 47,
     name: "UPS ESOL TRI PT 30KVA Pantalla Touch Full Color",
     sku: "UPSESESOLTRIPT30CB",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPSESESOLTRIPT30SB-768x768.jpg",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 30KVA con interfaz táctil a color y monitoreo avanzado"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 30KVA con interfaz táctil a color y monitoreo avanzado",
+    kva: 30
   },
   {
     id: 48,
     name: "UPS ESOL TRI PT 40KVA Pantalla Touch Full Color",
     sku: "UPSESOLTRIPT40CB",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPSESESOLTRIPT30SB-768x768.jpg",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 40KVA con pantalla táctil para control completo del sistema"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 40KVA with pantalla táctil para control completo del sistema",
+    kva: 40
   },
   {
     id: 49,
     name: "UPS TRI PT 60KVA BAT/INT Pantalla Touch Full Color",
     sku: "UPSTRIPT60KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/UPS-TRIFASICA-60KVA-SIN-FONDO-300x300.png",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 60KVA con baterías integradas y pantalla táctil a color"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 60KVA con baterías integradas y pantalla táctil a color",
+    kva: 60
   },
   {
     id: 50,
     name: "UPS TRI PT 100KVA BAT/INT Pantalla Touch Full Color",
     sku: "UPSTRIPT2100KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/Imagen-UPS-60-100KVA-EnerSafe-300x300.png",
-    category: "ups-trifasicas",
-    description: "UPS trifásico de 100KVA de alta capacidad con baterías integradas y pantalla táctil"
+    category: "ups-trifásico ",
+    description: "UPS trifásico de 100KVA de alta capacidad con baterías integradas y pantalla táctil",
+    kva: 100
   },
   {
     id: 51,
@@ -414,15 +451,17 @@ export const productsData: Product[] = [
     sku: "UPSESOL3-1-6KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe58-300x300.jpg",
     category: "ups-online",
-    description: "UPS trifásico a monofásico de 6KVA con relación 3:1 para conversión de energía"
+    description: "UPS trifásico a monofásico de 6KVA con relación 3:1 para conversión de energía",
+    kva: 6
   },
   {
     id: 52,
     name: "UPS ESOL TRI RT 20KVA Rackeable",
     sku: "UPSESOLTRIRT20KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/3-UPS-RT20KVA-con-sombra-300x300.jpg",
-    category: "ups-trifasicas",
-    description: "UPS trifásico rackeable de 20KVA para instalación en centros de datos"
+    category: "ups-trifásico ",
+    description: "UPS trifásico rackeable de 20KVA para instalación en centros de datos",
+    kva: 20
   },
   {
     id: 53,
@@ -430,7 +469,8 @@ export const productsData: Product[] = [
     sku: "UPSESOLRTH3-1-10KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe58-300x300.jpg",
     category: "ups-online",
-    description: "UPS trifásico a monofásico de 10KVA con tecnología de conversión 3:1"
+    description: "UPS trifásico a monofásico de 10KVA con tecnología de conversión 3:1",
+    kva: 10
   },
   {
     id: 54,
@@ -438,7 +478,8 @@ export const productsData: Product[] = [
     sku: "BYPASSTRI10-40KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/BYPASS-TRIFASICO-con-sombra-300x300.jpg",
     category: "accesorios",
-    description: "Tablero de bypass trifásico para UPS de 10 a 40KVA para mantenimiento seguro"
+    description: "Tablero de bypass trifásico para UPS de 10 a 40KVA para mantenimiento seguro",
+    kva: 25
   },
   {
     id: 55,
@@ -446,7 +487,8 @@ export const productsData: Product[] = [
     sku: "INVCAR1440",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe15-300x300.jpg",
     category: "accesorios",
-    description: "Inversor cargador de 2400VA/1440W para sistemas de 24VDC"
+    description: "Inversor cargador de 2400VA/1440W para sistemas de 24VDC",
+    kva: 2.4
   },
   {
     id: 56,
@@ -454,7 +496,8 @@ export const productsData: Product[] = [
     sku: "INVCAR900",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe15-300x300.jpg",
     category: "accesorios",
-    description: "Inversor cargador de 1500VA/900W para sistemas de 12VDC"
+    description: "Inversor cargador de 1500VA/900W para sistemas de 12VDC",
+    kva: 1.5
   },
   {
     id: 57,
@@ -462,7 +505,8 @@ export const productsData: Product[] = [
     sku: "MDESOLTRIRT20KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe25-300x300.jpg",
     category: "accesorios",
-    description: "Módulo de distribución bypass rackeable para UPS de 20KVA"
+    description: "Módulo de distribución bypass rackeable para UPS de 20KVA",
+    kva: 20
   },
   {
     id: 58,
@@ -470,7 +514,8 @@ export const productsData: Product[] = [
     sku: "BYPPRDPDU610KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2025/09/2-PDU-con-sombra-300x300.jpg",
     category: "accesorios",
-    description: "PDU con bypass rackeable para UPS monofásicos de 6-10KVA"
+    description: "PDU con bypass rackeable para UPS monofásicos de 6-10KVA",
+    kva: 8
   },
   {
     id: 59,
@@ -478,7 +523,8 @@ export const productsData: Product[] = [
     sku: "BYPRAPROPDU610KVA",
     image: "https://enersafelatam.com/wp-content/uploads/2024/02/2-PDU-PARALELISMO-con-sombra-300x300.jpg",
     category: "accesorios",
-    description: "Sistema de bypass con paralelismo rackeable para UPS de 6-10KVA"
+    description: "Sistema de bypass con paralelismo rackeable para UPS de 6-10KVA",
+    kva: 8
   },
   {
     id: 60,
@@ -486,7 +532,8 @@ export const productsData: Product[] = [
     sku: "RT9100-PDU",
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/Enersafe21-300x300.jpg",
     category: "accesorios",
-    description: "Switch bypass con PDU integrado para UPS de 1-3KVA"
+    description: "Switch bypass con PDU integrado para UPS de 1-3KVA",
+    kva: 2
   },
   {
     id: 61,
@@ -503,7 +550,7 @@ export const productsData: Product[] = [
     image: "https://enersafelatam.com/wp-content/uploads/2023/06/Enersafe9-300x300.jpg",
     category: "accesorios",
     description: "Tarjeta SNMP para Transfer Switch Automático (ATS), monitoreo remoto"
-  },
+  }
 ];
 
 export const dynamic = 'force-dynamic';

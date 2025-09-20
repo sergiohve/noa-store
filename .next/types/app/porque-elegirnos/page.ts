@@ -1,4 +1,4 @@
-// File: C:\Users\Usuario\Pictures\Portafolio pagina web\src\app\porque-elegirnos\page.tsx
+// File: C:\Projects\noa-store\noa-store\src\app\porque-elegirnos\page.tsx
 import * as entry from '../../../../src/app/porque-elegirnos/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
