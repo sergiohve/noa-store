@@ -36,7 +36,7 @@ export function Cart() {
           <ShoppingCartIcon className="h-9 w-9 text-neutral-700 hover:scale-[1.1] transition-all cursor-pointer" />
 
           {isMounted && totalItems !== 0 && (
-            <Badge className="absolute -top-1 -right-2 bg-orange-300 min-w-6 h-5 flex items-center justify-center p-0 border-3 border-white">
+            <Badge className="absolute -top-1 -right-2 bg-orange-400 min-w-6 h-5 flex items-center justify-center p-0 border-3 border-white">
               {totalItems}
             </Badge>
           )}

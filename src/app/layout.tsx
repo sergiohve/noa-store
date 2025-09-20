@@ -5,7 +5,10 @@ import {
   Montserrat,
 } from "next/font/google";
 import "./globals.css";
-
+import { Toaster } from "@/components/ui/sonner";
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"></link>;
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -118,7 +121,9 @@ export default function RootLayout({
     <html
       lang="es-CL"
       className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children} <Toaster />
+      </body>
     </html>
   );
 }

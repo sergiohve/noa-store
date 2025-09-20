@@ -1,7 +1,6 @@
-// TiendaContent.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ButtonWhatsApp from "../components/ButtonWhatsApp";
@@ -12,20 +11,40 @@ import { useCartStore } from "../store/cartStore";
 import { ProductCard } from "../components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { KvaFilterPopover } from "../components/KvaFilterPopover";
+import { CategoryFilterPopover } from "../components/CategoryFilterPopover";
+import { useRouter } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 function TiendaContent() {
+  const [, setQuery] = useState("");
+  const [, setIsOpen] = useState(false);
+  const router = useRouter();
   const addItem = useCartStore(state => state.addItem);
   const [selectedKvas, setSelectedKvas] = useState<
     number[]
   >([]);
+  const [selectedCategories, setSelectedCategories] =
+    useState<string[]>([]);
+
+  const allCategories = useMemo(
+    () =>
+      Array.from(
+        new Set(productsData.map(p => p.category))
+      ),
+    []
+  );
 
   const filteredProducts = productsData.filter(product => {
-    if (selectedKvas.length === 0) return true;
-    return (
-      product.kva && selectedKvas.includes(product.kva)
-    );
+    const kvaMatch =
+      selectedKvas.length === 0 ||
+      (product.kva && selectedKvas.includes(product.kva));
+
+    const categoryMatch =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.category);
+
+    return kvaMatch && categoryMatch;
   });
 
   return (
@@ -37,57 +56,55 @@ function TiendaContent() {
             <div>
               <Link
                 href="/"
-                className="hover:text-[#90D116]">
+                className="hover:text-emerald-500">
                 Inicio
               </Link>
               <span className="mx-2">/</span>
               <span className="text-white">Productos</span>
             </div>
             <div className="flex items-center gap-4">
-              {selectedKvas.length > 0 && (
+              {(selectedKvas.length > 0 ||
+                selectedCategories.length > 0) && (
                 <div className="flex flex-wrap gap-2">
-                  {/* {selectedKvas.map(kva => (
-                    <span
-                      key={kva}
-                      className="bg-emerald-500 text-white text-xs font-medium px-2.5 py-0.5 rounded-full flex items-center">
-                      {kva} KVA
-                      <button
-                        onClick={() =>
-                          setSelectedKvas(
-                            selectedKvas.filter(
-                              k => k !== kva
-                            )
-                          )
-                        }
-                        className="ml-1 text-white hover:text-gray-200">
-                        ×
-                      </button>
-                    </span>
-                  ))} */}
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => setSelectedKvas([])}
-                    className="text-white hover:text-gray-300 text-xs">
-                    Limpiar
+                    onClick={() => {
+                      setSelectedKvas([]);
+                      setSelectedCategories([]);
+                    }}
+                    className="text-neutral-800 hover:bg-orange-500 bg-orange-400 text-[12px] cursor-pointer">
+                    Limpiar filtros
                   </Button>
                 </div>
               )}
-              <KvaFilterPopover
-                selectedKvas={selectedKvas}
-                onKvaChange={setSelectedKvas}
-              />
+
+              <div className="flex gap-2">
+                <KvaFilterPopover
+                  selectedKvas={selectedKvas}
+                  onKvaChange={setSelectedKvas}
+                />
+                <CategoryFilterPopover
+                  selectedCategories={selectedCategories}
+                  onCategoryChange={setSelectedCategories}
+                  allCategories={allCategories}
+                />
+              </div>
             </div>
           </nav>
         </div>
 
         <div className="flex flex-col gap-8">
-          <div className="text-white mb-4 text-sm font-medium">
+          <div className="text-white mb-4">
             <p>
               Mostrando {filteredProducts.length} de{" "}
               {productsData.length} productos
-              {selectedKvas.length > 0 &&
-                ` filtrados por ${selectedKvas.length} valores KVA`}
+              {(selectedKvas.length > 0 ||
+                selectedCategories.length > 0) &&
+                ` filtrados por ${
+                  selectedKvas.length +
+                  selectedCategories.length
+                } criterios`}
             </p>
           </div>
 
@@ -100,9 +117,13 @@ function TiendaContent() {
                 category={product.category}
                 kva={product.kva ?? ""}
                 sku={product.sku}
-                onDetails={() =>
-                  (window.location.href = `/detail-product?id=${product.id}`)
-                }
+                onDetails={() => {
+                  router.push(
+                    `/detail-product?id=${product.id}`
+                  );
+                  setQuery("");
+                  setIsOpen(false);
+                }}
                 onQuote={() => addItem(product.id)}
               />
             ))}

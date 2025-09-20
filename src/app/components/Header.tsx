@@ -8,7 +8,8 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Cart } from "./Cart";
-import { Input } from "@/components/ui/input";
+import { SearchInput } from "./SearchInput";
+import { useRouter } from "next/navigation";
 
 interface HeaderContentProps {
   children?: ReactNode;
@@ -17,6 +18,15 @@ interface HeaderContentProps {
 function HeaderContent({ children }: HeaderContentProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState("");
+  const [, setQuery] = useState("");
+  const [, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const handleProductSelect = (productId: number) => {
+    router.push(`/detail-product?id=${productId}`);
+    setQuery("");
+    setIsOpen(false);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -126,24 +136,27 @@ function HeaderContent({ children }: HeaderContentProps) {
                 </ul>
               </nav>
 
-              <div className="flex items-center space-x-4">
-                <Input
-                  className="border-1 text-neutral-800 focus:outline-indigo-500 focus-visible:ring-1 focus-visible:ring-transparent  transition-all"
-                  type="text"
-                  placeholder="Buscar Productos..."
+              <div className=" flex justify-center items-center gap-3">
+                <SearchInput
+                  onProductSelect={handleProductSelect}
+                  placeholder="Buscar producto..."
+                  className="max-w-2xl mx-auto"
                 />
 
                 <Cart />
               </div>
             </div>
 
-            <button
-              className="lg:hidden flex flex-col space-y-1"
-              onClick={toggleMenu}>
-              <span className="w-6 h-0.5 bg-gray-800"></span>
-              <span className="w-6 h-0.5 bg-gray-800"></span>
-              <span className="w-6 h-0.5 bg-gray-800"></span>
-            </button>
+            <div className="lg:hidden flex gap-6">
+              <button
+                className=" flex flex-col space-y-1 mt-3"
+                onClick={toggleMenu}>
+                <span className="w-6 h-0.5 bg-gray-800"></span>
+                <span className="w-6 h-0.5 bg-gray-800"></span>
+                <span className="w-6 h-0.5 bg-gray-800"></span>
+              </button>
+              <Cart />
+            </div>
           </div>
         </div>
 

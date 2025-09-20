@@ -40,10 +40,6 @@ export function KvaFilterPopover({
     }
   };
 
-  const selectAll = () => {
-    onKvaChange(uniqueKvaValues);
-  };
-
   const clearAll = () => {
     onKvaChange([]);
   };
@@ -53,7 +49,7 @@ export function KvaFilterPopover({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="text-neutral-800 flex items-center gap-2">
+          className="text-neutral-800 flex items-center gap-2 cursor-pointer text-[12px]">
           <SlidersHorizontal size={16} />
           Filtrar por kVA
           {selectedKvas.length > 0 && (
@@ -63,24 +59,16 @@ export function KvaFilterPopover({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent
-        className="w-80 text-[12px]"
-        align="end">
+      <PopoverContent className="w-80 " align="end">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="font-medium">kVA Capacidad</h4>
             <div className="flex gap-2">
               <Button
-                variant="outline"
-                size="sm"
-                onClick={selectAll}>
-                Todos
-              </Button>
-              <Button
-                variant="outline"
+                className="text-neutral-800 bg-orange-400 text-[11px] cursor-pointer hover:bg-orange-500 hover:text-neutral-800"
                 size="sm"
                 onClick={clearAll}>
-                Limpiar
+                Limpiar todos
               </Button>
             </div>
           </div>
@@ -91,7 +79,7 @@ export function KvaFilterPopover({
                 key={kva}
                 className="flex items-center space-x-2">
                 <Checkbox
-                  className="text-sm"
+                  className="text-sm cursor-pointer"
                   id={`kva-${kva}`}
                   checked={selectedKvas.includes(kva)}
                   onCheckedChange={checked =>
