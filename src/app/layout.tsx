@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import {
   Geist,
-  Geist_Mono,
   Montserrat,
+  Oswald,
+  Barlow_Condensed,
 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "./components/Navbar";
 <link
   rel="stylesheet"
   href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"></link>;
@@ -14,10 +16,16 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
 });
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  variable: "--font-barlow",
+  weight: ["200", "300", "400", "500"],
+});
+
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -120,9 +128,12 @@ export default function RootLayout({
   return (
     <html
       lang="es-CL"
-      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}>
+      className={`${geistSans.variable} ${oswald.variable} ${montserrat.variable} ${barlow.variable}`}>
       <body suppressHydrationWarning>
-        {children} <Toaster />
+        <Navbar />
+        <div>
+          {children} <Toaster />
+        </div>
       </body>
     </html>
   );

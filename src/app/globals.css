@@ -10,9 +10,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat);
+  --font-sans: var(--font-barlow);
   /* --font-sans: var(--font-geist-sans); */
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-oswald);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -125,4 +125,36 @@
     @apply bg-background text-foreground;
     background-color: #171717;
   }
+}
+
+/* Habilita el scroll suave en todo el documento */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Para navegadores WebKit (Safari, Chrome más antiguos) */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html, body {
+    scroll-behavior: smooth;
+  }
+  
+  /* Safari específico - suavizado adicional */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Para elementos con scroll interno */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Para navegadores que no soportan scroll-behavior (fallback) */
+@supports not (scroll-behavior: smooth) {
+  .smooth-scroll {
+    scroll-behavior: auto;
+  }
+  
+  /* JavaScript deberá manejar la animación para estos navegadores */
 }

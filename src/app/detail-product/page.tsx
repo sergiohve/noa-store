@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import ButtonWhatsApp from "../components/ButtonWhatsApp";
 import { Suspense } from "react";
 import Image from "next/image";
@@ -52,7 +51,6 @@ function ProductDetailContent() {
 
   return (
     <>
-      <Header />
       <main className="relative z-10 mx-auto pt-3 pb-12 mt-40 max-w-6xl px-4 lg:px-5">
         <div className="mb-6 text-sm hover:text-emerald-500">
           <nav className="text-white">
