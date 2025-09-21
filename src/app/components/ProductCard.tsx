@@ -18,7 +18,6 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 import { useCartStore } from "../store/cartStore";
-import Link from "next/link";
 
 interface ProductCardProps {
   image: string;
@@ -119,7 +118,7 @@ export function ProductCard({
 
         <div className="flex-grow"></div>
 
-        <CardFooter className="flex justify-between border-t pt-4 flex-shrink-0 gap-1">
+        <CardFooter className="flex justify-between border-t -pt-2 flex-shrink-0 gap-1">
           <Button
             variant="outline"
             onClick={onDetails}

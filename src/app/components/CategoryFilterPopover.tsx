@@ -1,4 +1,3 @@
-// components/CategoryFilterPopover.tsx
 "use client";
 
 import { useState } from "react";
@@ -17,7 +16,6 @@ interface CategoryFilterPopoverProps {
   onCategoryChange: (categories: string[]) => void;
 }
 
-// Array de categorías definido localmente
 const allCategories = [
   "accesorios",
   "bancos-baterias",
@@ -39,13 +37,11 @@ const allCategories = [
   "ups-trifásico ",
 ];
 
-// Función para formatear los nombres de categoría para mostrar
 const formatCategoryName = (category: string): string => {
   const formatted = category
     .replace(/-/g, " ")
     .replace(/\b\w/g, l => l.toUpperCase());
 
-  // Reemplazos específicos para mejor legibilidad
   return formatted
     .replace("Pdu", "PDU")
     .replace("Ups", "UPS")

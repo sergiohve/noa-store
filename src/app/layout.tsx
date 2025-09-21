@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "./components/Navbar";
 <link
   rel="stylesheet"
   href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"></link>;
@@ -129,7 +130,10 @@ export default function RootLayout({
       lang="es-CL"
       className={`${geistSans.variable} ${oswald.variable} ${montserrat.variable} ${barlow.variable}`}>
       <body suppressHydrationWarning>
-        {children} <Toaster />
+        <Navbar />
+        <div>
+          {children} <Toaster />
+        </div>
       </body>
     </html>
   );

@@ -6,7 +6,6 @@ import ButtonWhatsApp from "./components/ButtonWhatsApp";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function HomeContent() {
@@ -23,8 +22,10 @@ function HomeContent() {
           loop: true,
           speed: 2000,
           navigation: {
-            nextEl: ".slider-imagenes-home .swiper-button-next",
-            prevEl: ".slider-imagenes-home .swiper-button-prev",
+            nextEl:
+              ".slider-imagenes-home .swiper-button-next",
+            prevEl:
+              ".slider-imagenes-home .swiper-button-prev",
           },
           pagination: {
             el: ".slider-imagenes-home .swiper-pagination",
@@ -39,8 +40,6 @@ function HomeContent() {
 
   return (
     <div className="font-sans bg-white text-gray-900">
-      <Header />
-
       <section className="relative w-full h-screen bg-[#1A1A1A] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -49,7 +48,7 @@ function HomeContent() {
             layout="fill"
             objectFit=""
             quality={10}
-            className="opacity-40 mt-20"
+            className="opacity-40 "
           />
         </div>
 
@@ -59,13 +58,12 @@ function HomeContent() {
               Productos de Energía Confiable para tu Negocio
             </h2>
             <p className="text-sm sm:text-lg mb-6">
-              Explora nuestro catálogo de equipos UPS, baterías, y soluciones de
-              cooling.
+              Explora nuestro catálogo de equipos UPS,
+              baterías, y soluciones de cooling.
             </p>
             <a
               href="/tienda"
-              className="inline-block px-6 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-300"
-            >
+              className="inline-block px-6 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-300">
               Explorar productos
             </a>
           </div>
@@ -100,14 +98,14 @@ function HomeContent() {
                 Encuentra el Equipo Perfecto
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Desde soluciones para centros de datos hasta protección para el
-                hogar, contamos con el equipo que necesitas.
+                Desde soluciones para centros de datos hasta
+                protección para el hogar, contamos con el
+                equipo que necesitas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/tienda"
-                  className="bg-[#90D116] text-white px-6 py-3 rounded-md hover:bg-[#72A612] transition text-center"
-                >
+                  className="bg-[#90D116] text-white px-6 py-3 rounded-md hover:bg-[#72A612] transition text-center">
                   Ver catálogo completo
                 </a>
               </div>
@@ -187,8 +185,7 @@ function HomeContent() {
               <a
                 key={index}
                 href={category.link}
-                className="group block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition"
-              >
+                className="group block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition">
                 <div className="relative h-48 bg-white flex items-center justify-center">
                   <Image
                     src={category.image}
@@ -223,8 +220,7 @@ export default function Home() {
         <div className="flex justify-center items-center h-screen">
           <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
         </div>
-      }
-    >
+      }>
       <HomeContent />
     </Suspense>
   );

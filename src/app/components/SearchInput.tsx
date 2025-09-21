@@ -91,8 +91,8 @@ export function SearchInput({
   };
 
   return (
-    <div className={`relative ${className}`}>
-      <div className="relative">
+    <div className={`relative ${className} w-full`}>
+      <div className="relative w-full">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
         <Input
           type="text"
@@ -101,7 +101,7 @@ export function SearchInput({
           onBlur={handleInputBlur}
           onFocus={handleInputFocus}
           placeholder={placeholder}
-          className="w-82 border-1 text-neutral-800 focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 pl-10"
+          className="w-full min-w-62 xl:min-w-82 border-1 text-neutral-800 focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 pl-10"
         />
         {query && (
           <Button

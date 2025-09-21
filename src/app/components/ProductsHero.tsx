@@ -14,33 +14,33 @@ import {
 const ProductsHero = () => {
   const uses = [
     {
-      icon: <DatabaseZap className="h-8 w-8 font-light" />,
+      icon: <DatabaseZap className="h-6 w-6 font-light" />,
       text: "Data Centers",
     },
     {
-      icon: <Activity className="h-8 w-8" />,
+      icon: <Activity className="h-6 w-6" />,
       text: "Equipos Médicos",
     },
     {
-      icon: <Pickaxe className="h-8 w-8" />,
+      icon: <Pickaxe className="h-6 w-6" />,
       text: "Minería",
     },
     {
-      icon: <Cctv className="h-8 w-8" />,
+      icon: <Cctv className="h-6 w-6" />,
       text: "Seguridad",
     },
     {
-      icon: <Server className="h-8 w-8" />,
+      icon: <Server className="h-6 w-6" />,
       text: "Servidores",
     },
     {
-      icon: <EarthLock className="h-8 w-8" />,
+      icon: <EarthLock className="h-6 w-6" />,
       text: "Telecom",
     },
   ];
 
   return (
-    <div className="relative w-full h-96 md:h-[500px] flex mt-16">
+    <div className="relative w-full flex ">
       <div className="absolute inset-0 w-full h-full">
         <Image
           src={ServerImage}
@@ -59,12 +59,12 @@ const ProductsHero = () => {
       </div>
 
       <div className="relative z-10 flex flex-col justify-center items-start w-full md:w-1/2 ml-auto px-8 text-white">
-        <div className="h-auto w-full bg-white rounded-2xl md:-ml-32">
+        <div className="h-auto w-full bg-white rounded-2xl md:-ml-32 mt-24">
           <div className="p-8 flex flex-col gap-4">
             <h1 className="text-neutral-900 text-xl font-bold">
               UPS
             </h1>
-            <p className="text-neutral-900 font-semilight text-md leading-[1.2]">
+            <p className="text-neutral-900 font-semilight text-sm md:text-md leading-[1.2]">
               Noa Store cuenta con UPS Interactivos, Online,
               trifasicos y modulares,ofrecemos respaldo de
               energia para distintas areas tales como
@@ -78,7 +78,7 @@ const ProductsHero = () => {
             <h1 className="text-neutral-900 text-xl font-bold">
               Principales Usos
             </h1>
-            <div className="flex gap-2">
+            <div className="grid xl:flex grid-cols-2 sm:grid-cols-3 xl:gap-2 gap-16 h-auto -space-y-12">
               {uses.map(item => {
                 return (
                   <ul key={item.text}>
