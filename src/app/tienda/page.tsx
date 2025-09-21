@@ -68,7 +68,7 @@ function TiendaContent() {
 
   const getPageNumbers = () => {
     const pageNumbers = [];
-    const maxVisiblePages = 7;
+    const maxVisiblePages = 5;
 
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
@@ -108,7 +108,7 @@ function TiendaContent() {
 
       <main className="relative z-10 mx-auto mt-32 pb-12  max-w-6xl px-4 lg:px-5 bg-neutral-900 ">
         <div className="mb-6 text-sm">
-          <nav className="text-white flex justify-between items-center">
+          <nav className="text-white flex md:justify-between md:items-center  items-start gap-4 flex-col md:flex-row w-full justify-start">
             <div>
               <Link
                 href="/"
