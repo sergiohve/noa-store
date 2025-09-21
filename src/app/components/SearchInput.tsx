@@ -108,29 +108,29 @@ export function SearchInput({
             variant="ghost"
             size="sm"
             onClick={clearSearch}
-            className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0">
+            className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0 cursor-pointer">
             <X className="h-3 w-3" />
           </Button>
         )}
       </div>
 
       {isOpen && (query || suggestions.length > 0) && (
-        <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md shadow-lg z-50 mt-1 max-h-60 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md shadow-xs shadow-neutral-900 z-50 mt-1 max-h-60 overflow-y-auto">
           {isLoading ? (
             <div className="p-4 text-center text-gray-500 text-sm">
               Buscando...
             </div>
           ) : suggestions.length > 0 ? (
-            <ul className="py-1">
+            <ul className="py-1 ">
               {suggestions.map(product => (
-                <li key={product.id}>
+                <li key={product.id} className="">
                   <button
                     type="button"
                     onClick={() =>
                       handleSuggestionClick(product.id)
                     }
-                    className="w-full text-left px-4 py-2 hover:bg-neutral-800 hover:text-white focus:bg-gray-100 focus:outline-none">
-                    <div className="font-medium text-sm cursor-pointer">
+                    className=" cursor-pointer w-full text-left px-4 py-2 hover:bg-neutral-800 hover:text-white focus:bg-gray-100 focus:outline-none">
+                    <div className="font-medium text-sm ">
                       {product.name}
                     </div>
                   </button>
