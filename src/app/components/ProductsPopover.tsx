@@ -144,7 +144,7 @@ const ProductsPopover: React.FC<
           </div>
 
           <div
-            className={`absolute top-0 left-full bg-white shadow-xl rounded-lg p-2 z-40 border border-gray-200 
+            className={`absolute top-0 left-full bg-white shadow-xs shadow-neutral-900 rounded-lg p-2 z-40 border border-gray-200 
             opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible 
             transition-all duration-150 ease-out
             ${item.label.length > 15 ? "w-52" : "w-48"}`}
@@ -198,7 +198,7 @@ const ProductsPopover: React.FC<
           <div className="absolute -top-2 -left-4 -right-4 h-6 group-hover:block"></div>
 
           <div
-            className="absolute bg-white shadow-2xl rounded-lg p-2 w-64 z-30 top-full left-0 border border-gray-200
+            className="absolute bg-white shadow-xs shadow-neutral-900 rounded-lg p-2 w-64 z-30 top-full left-0 border border-gray-200
             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
             transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out
             mt-2"

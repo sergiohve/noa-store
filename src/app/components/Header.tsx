@@ -58,7 +58,7 @@ function HeaderContent({ children }: HeaderContentProps) {
 
   return (
     <div className="font-sans">
-      <header className="bg-white fixed w-full z-50 top-0 shadow-2xl rounded-2xl">
+      <header className="bg-white fixed w-full z-50 top-0 shadow-neutral-900 shadow-sm rounded-2xl">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-3 md:py-0">
             {/* Logo */}
@@ -141,7 +141,7 @@ function HeaderContent({ children }: HeaderContentProps) {
 
           {/* Menú móvil desplegable */}
           <div
-            className={`mobile-menu -mt-4 pt-4 md:hidden bg-white absolute left-0 right-0 shadow-xl transition-all duration-300 ease-in-out ${
+            className={`mobile-menu -mt-4 pt-4 md:hidden bg-white absolute left-0 right-0  transition-all duration-300 ease-in-out ${
               isMenuOpen
                 ? "max-h-96 opacity-100 py-4"
                 : "max-h-0 opacity-0 overflow-hidden"
