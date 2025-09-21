@@ -15,13 +15,48 @@ import { SlidersHorizontal } from "lucide-react";
 interface CategoryFilterPopoverProps {
   selectedCategories: string[];
   onCategoryChange: (categories: string[]) => void;
-  allCategories: string[];
 }
+
+// Array de categorías definido localmente
+const allCategories = [
+  "accesorios",
+  "bancos-baterias",
+  "baterias",
+  "clima-precision",
+  "climatizacion-para-gabinetes",
+  "equipamiento-datacenter",
+  "estabilizadores-de-voltaje",
+  "gabinete",
+  "inversores",
+  "microdatacenter",
+  "microdatacenter-outdoor",
+  "pdu",
+  "rack-comunicaciones",
+  "ups-interactivas",
+  "ups-modulares",
+  "ups-online",
+  "ups-trifasicas",
+  "ups-trifásico ",
+];
+
+// Función para formatear los nombres de categoría para mostrar
+const formatCategoryName = (category: string): string => {
+  const formatted = category
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, l => l.toUpperCase());
+
+  // Reemplazos específicos para mejor legibilidad
+  return formatted
+    .replace("Pdu", "PDU")
+    .replace("Ups", "UPS")
+    .replace("Ip", "IP")
+    .replace("Kva", "KVA")
+    .replace("Kw", "KW");
+};
 
 export function CategoryFilterPopover({
   selectedCategories,
   onCategoryChange,
-  allCategories,
 }: CategoryFilterPopoverProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -42,6 +77,10 @@ export function CategoryFilterPopover({
     onCategoryChange([]);
   };
 
+  const selectAll = () => {
+    onCategoryChange([...allCategories]);
+  };
+
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
@@ -57,13 +96,22 @@ export function CategoryFilterPopover({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-80" align="end">
-        <div className="space-y-4">
+      <PopoverContent
+        className="w-80 max-h-96 overflow-hidden flex flex-col z-49"
+        align="end">
+        <div className="space-y-4 flex-1 overflow-hidden flex flex-col">
           <div className="flex items-center justify-between">
-            <h4 className="font-medium ">Categoría</h4>
+            <h4 className="font-medium">Categorías</h4>
             <div className="flex gap-2">
               <Button
                 className="cursor-pointer bg-orange-400 text-neutral-800 font-medium text-[11px] hover:bg-orange-500"
+                variant="outline"
+                size="sm"
+                onClick={selectAll}>
+                Seleccionar todos
+              </Button>
+              <Button
+                className="cursor-pointer text-neutral-800 font-medium text-[11px]"
                 variant="outline"
                 size="sm"
                 onClick={clearAll}>
@@ -72,7 +120,7 @@ export function CategoryFilterPopover({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 max-h-60 overflow-y-auto pr-2">
+          <div className="grid grid-cols-1 gap-3 flex-1 overflow-y-auto pr-2">
             {allCategories.map(category => (
               <div
                 key={category}
@@ -92,15 +140,15 @@ export function CategoryFilterPopover({
                 />
                 <Label
                   htmlFor={`cat-${category}`}
-                  className="cursor-pointer text-sm capitalize text-[12px]">
-                  {category.replace(/-/g, " ")}
+                  className="cursor-pointer text-sm text-[12px] leading-tight flex-1">
+                  {formatCategoryName(category)}
                 </Label>
               </div>
             ))}
           </div>
 
           {selectedCategories.length > 0 && (
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-muted-foreground pt-2 border-t">
               {selectedCategories.length} categoría(s)
               seleccionada(s)
             </div>

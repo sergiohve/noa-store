@@ -66,7 +66,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
 
             <Badge
               variant="secondary"
-              className="text-sm min-w-8 justify-center text-white bg-neutral-800 pointer-events-none select-none font-semibold">
+              className="text-sm min-w-8 justify-center text-white bg-neutral-800 pointer-events-none select-none font-medium">
               {quantity}
             </Badge>
 

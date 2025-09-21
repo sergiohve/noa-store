@@ -81,7 +81,6 @@ export function SearchInput({
   };
 
   const handleInputBlur = () => {
-    // Pequeño delay para permitir hacer clic en las sugerencias
     setTimeout(() => setIsOpen(false), 200);
   };
 

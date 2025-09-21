@@ -12,8 +12,8 @@ import { Label } from "@/components/ui/label";
 import { SlidersHorizontal } from "lucide-react";
 
 const uniqueKvaValues = [
-  0.6, 1, 1.5, 2, 2.4, 2.5, 3, 6, 8, 10, 20, 25, 30, 40, 60,
-  80, 100,
+  0.3, 0.6, 1, 1.5, 2, 2.4, 3, 4, 5, 6, 8, 10, 12, 20, 25,
+  30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 120,
 ];
 
 interface KvaFilterPopoverProps {
@@ -59,7 +59,7 @@ export function KvaFilterPopover({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-80 " align="end">
+      <PopoverContent className="w-80 z-49" align="end">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="font-medium">kVA Capacidad</h4>

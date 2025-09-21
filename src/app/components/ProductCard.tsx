@@ -8,10 +8,17 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { Eye, BarChart3, ShoppingCart } from "lucide-react";
+import {
+  Eye,
+  BarChart3,
+  ShoppingCart,
+  Info,
+  CircleCheck,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useCartStore } from "../store/cartStore";
+import Link from "next/link";
 
 interface ProductCardProps {
   image: string;
@@ -42,11 +49,22 @@ export function ProductCard({
     onQuote();
 
     toast.success(`"${title}" agregado a cotización`, {
-      action: {
-        label: "Deshacer",
+      icon: (
+        <CircleCheck className="text-emerald-500 w-5 h-5" />
+      ),
+
+      cancel: {
+        label: (
+          <span className="bg-red-500 cursor-pointer hover:bg-red-700 text-white py-1 px-2 rounded-md">
+            Deshacer
+          </span>
+        ),
         onClick: () => {
           useCartStore.setState({ items: previousItems });
-          toast.info("Acción deshecha");
+          toast("Se ha removido de la cotización", {
+            icon: <Info className="text-red-500 w-5 h-5" />,
+            duration: 3000,
+          });
         },
       },
       duration: 3000,
@@ -56,7 +74,7 @@ export function ProductCard({
   return (
     <Card className="w-full sm:w-58 h-96 overflow-hidden transition-all duration-300 hover:shadow-xl border-gray-200 group flex flex-col">
       <div className="relative flex-shrink-0">
-        <div className="relative h-40 w-full overflow-hidden">
+        <div className="relative h-40 w-full overflow-hidden font-">
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
               <BarChart3 className="h-10 w-10 text-gray-300" />
@@ -88,11 +106,13 @@ export function ProductCard({
       <div className="flex flex-col flex-grow">
         <CardHeader className="pb-2 flex-shrink-0">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="font-semibold text-sm leading-tight line-clamp-2 text-gray-800 group-hover:text-emerald-500 transition-colors">
+            <p
+              onClick={onDetails}
+              className="cursor-pointer font-semibold text-sm leading-tight line-clamp-2 text-neutral-800 hover:text-emerald-500 transition-colors">
               {title}
-            </h3>
+            </p>
           </div>
-          <p className="text-[12px] text-muted-foreground">
+          <p className="text-[13px]  text-neutral-800">
             SKU: {sku}
           </p>
         </CardHeader>
@@ -109,8 +129,13 @@ export function ProductCard({
           </Button>
           <Button
             onClick={handleQuoteClick}
-            className="flex items-center gap-1 bg-emerald-400 hover:bg-emerald-500 transition-all hover:gap-1 text-xs h-8 cursor-pointer active:scale-[0.9] scale-100">
-            <ShoppingCart className="h-3 w-3" /> Cotizar
+            className="flex items-center bg-emerald-400 hover:bg-emerald-500 transition-all duration-300 text-xs h-8 cursor-pointer active:scale-[0.9] scale-100 overflow-hidden group px-2">
+            <div className="flex items-center">
+              <ShoppingCart className="h-3 w-3 transition-transform duration-300 group-hover:-translate-x-1" />
+              <span className="max-w-0 opacity-0 group-hover:max-w-[60px] group-hover:opacity-100 group-hover:ml-1 transition-all duration-300 whitespace-nowrap overflow-hidden">
+                Cotizar
+              </span>
+            </div>
           </Button>
         </CardFooter>
       </div>
