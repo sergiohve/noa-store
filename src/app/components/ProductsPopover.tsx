@@ -1,129 +1,20 @@
+// ProductsPopover.tsx
 import React from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
-
-interface MenuItem {
-  id: string;
-  label: string;
-  href?: string;
-  subItems?: MenuItem[];
-}
+import {
+  MenuItem,
+  navigationData,
+} from "../constants/products-navigation";
 
 interface NavigationComponentProps {
   onNavigate?: (path: string) => void;
 }
 
-const navigationData: MenuItem[] = [
-  {
-    id: "ups",
-    label: "UPS",
-    subItems: [
-      {
-        id: "ups-interactivas",
-        label: "UPS INTERACTIVAS",
-        href: "/ups?tipo=ups-interactivas",
-      },
-      {
-        id: "ups-online",
-        label: "UPS ONLINE",
-        href: "/ups?tipo=ups-online",
-      },
-      {
-        id: "ups-trifasicas",
-        label: "UPS TRIFÁSICAS",
-        href: "/ups?tipo=ups-trifasicas",
-      },
-      {
-        id: "ups-modulares",
-        label: "UPS MODULARES",
-        href: "/ups?tipo=ups-modulares",
-      },
-      {
-        id: "ups-industrial",
-        label: "UPS INDUSTRIAL",
-        href: "/ups?tipo=ups-industrial",
-      },
-    ],
-  },
-  {
-    id: "climatizacion",
-    label: "EQUIPOS DE CLIMATIZACIÓN",
-    subItems: [
-      {
-        id: "clima-precision",
-        label: "CLIMA DE PRECISIÓN",
-        href: "/ups?tipo=clima-precision",
-      },
-      {
-        id: "climatizacion-gabinetes",
-        label: "CLIMATIZACIÓN PARA GABINETES",
-        href: "/ups?tipo=climatizacion-para-gabinetes",
-      },
-    ],
-  },
-  {
-    id: "gabinete",
-    label: "GABINETE OUTDOOR",
-    href: "/ups?tipo=gabinete",
-  },
-  {
-    id: "accesorios",
-    label: "ACCESORIOS PARA UPS",
-    href: "/ups?tipo=accesorios",
-  },
-  {
-    id: "bancos-baterias",
-    label: "BANCOS DE BATERÍAS",
-    href: "/ups?tipo=bancos-baterias",
-  },
-  {
-    id: "baterias",
-    label: "BATERÍAS",
-    href: "/ups?tipo=baterias",
-  },
-  {
-    id: "estabilizadores",
-    label: "ESTABILIZADORES DE VOLTAJE",
-    href: "/ups?tipo=estabilizadores-de-voltaje",
-  },
-  {
-    id: "datacenter",
-    label: "DATACENTER",
-    subItems: [
-      {
-        id: "microdatacenter",
-        label: "MICRODATACENTER",
-        href: "/ups?tipo=microdatacenter",
-      },
-      {
-        id: "microdatacenter-outdoor",
-        label: "MICRODATACENTER OUTDOOR",
-        href: "/ups?tipo=microdatacenter-outdoor",
-      },
-      {
-        id: "equipamiento-datacenter",
-        label: "EQUIPAMIENTO DATACENTER",
-        href: "/ups?tipo=equipamiento-datacenter",
-      },
-      { id: "pdu", label: "PDU", href: "/ups?tipo=pdu" },
-    ],
-  },
-  {
-    id: "rack-comunicaciones",
-    label: "RACK DE COMUNICACIONES",
-    href: "/ups?tipo=rack-comunicaciones",
-  },
-  {
-    id: "inversores",
-    label: "INVERSORES",
-    href: "/ups?tipo=inversores",
-  },
-];
-
 const ProductsPopover: React.FC<
   NavigationComponentProps
 > = ({ onNavigate }) => {
-  const MenuItem: React.FC<{
+  const MenuItemComponent: React.FC<{
     item: MenuItem;
     isSubItem?: boolean;
   }> = ({ item }) => {
@@ -155,7 +46,10 @@ const ProductsPopover: React.FC<
 
             <div className="space-y-0">
               {item.subItems!.map(subItem => (
-                <MenuItem key={subItem.id} item={subItem} />
+                <MenuItemComponent
+                  key={subItem.id}
+                  item={subItem}
+                />
               ))}
             </div>
           </div>
@@ -181,7 +75,7 @@ const ProductsPopover: React.FC<
   };
 
   return (
-    <div className="hidden lg:flex items-center">
+    <div className="hidden md:flex items-center">
       <nav>
         <div className="relative group">
           <button
@@ -195,8 +89,6 @@ const ProductsPopover: React.FC<
             />
           </button>
 
-          <div className="absolute -top-2 -left-4 -right-4 h-6 group-hover:block"></div>
-
           <div
             className="absolute bg-white shadow-xs shadow-neutral-900 rounded-lg p-2 w-64 z-30 top-full left-0 border border-gray-200
             opacity-0 invisible group-hover:opacity-100 group-hover:visible 
@@ -207,7 +99,10 @@ const ProductsPopover: React.FC<
 
             <div className="space-y-0">
               {navigationData.map(item => (
-                <MenuItem key={item.id} item={item} />
+                <MenuItemComponent
+                  key={item.id}
+                  item={item}
+                />
               ))}
             </div>
           </div>
