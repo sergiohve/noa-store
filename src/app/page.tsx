@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Footer from "./components/Footer";
+import Link from "next/link";
 
 function HomeContent() {
   useEffect(() => {
@@ -61,11 +62,11 @@ function HomeContent() {
               Explora nuestro catálogo de equipos UPS,
               baterías, y soluciones de cooling.
             </p>
-            <a
+            <Link
               href="/tienda"
               className="inline-block px-6 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-300">
               Explorar productos
-            </a>
+            </Link>
           </div>
         </div>
       </section>
