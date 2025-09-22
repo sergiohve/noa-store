@@ -63,8 +63,7 @@ function UpsContent() {
 
   return (
     <>
-      {/* <Header /> */}
-      <main className="relative z-10 mx-auto pt-3 pb-12 mt-40 max-w-6xl px-4 lg:px-5 bg-neutral-900">
+      <main className="relative z-10 mx-auto pb-12 mt-40 max-w-6xl px-4 lg:px-5 bg-neutral-900">
         <div className="mb-6 text-sm">
           <nav className="text-white flex justify-between items-center">
             <div>
@@ -139,7 +138,6 @@ function UpsContent() {
           </div>
         </div>
       </main>
-      <Footer />
       <ButtonWhatsApp
         texto={`*Hola Noa Soto Networks, me gustaría una reunión para conversar sobre los productos*`}
       />

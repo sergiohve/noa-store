@@ -1,6 +1,51 @@
 "use client";
 import { Suspense } from "react";
-import Image from "next/image";
+// El componente Next.js Image ha sido reemplazado por una etiqueta <img> estándar
+// ya que la librería "next/image" no se puede resolver en este entorno.
+import { Mail, MapPin } from "lucide-react";
+
+const productos = [
+  {
+    name: "Equipos de Climatización",
+    link: "/ups?tipo=clima-precision",
+  },
+  {
+    name: "Gabinete Outdoor",
+    link: "/ups?tipo=gabinete",
+  },
+  {
+    name: "UPS",
+    link: "/ups",
+  },
+  {
+    name: "Accesorios para UPS",
+    link: "/ups?tipo=accesorios",
+  },
+  {
+    name: "Bancos de Baterías",
+    link: "/ups?tipo=bancos-baterias",
+  },
+  {
+    name: "Baterías",
+    link: "/ups?tipo=baterias",
+  },
+  {
+    name: "Estabilizadores de Voltaje",
+    link: "/ups?tipo=estabilizadores-de-voltaje",
+  },
+  {
+    name: "Datacenter",
+    link: "/ups?tipo=baterias",
+  },
+  {
+    name: "Rack de Comunicaciones",
+    link: "/ups?tipo=rack-comunicaciones",
+  },
+  {
+    name: "Inversores",
+    link: "/ups?tipo=inversores",
+  },
+];
 
 function FooterContent() {
   return (
@@ -9,22 +54,26 @@ function FooterContent() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div>
-              <div className="h-36 w-36 relative mb-4">
-                <Image 
-                  src="/logo-noa-footer.png" 
-                  alt="logo Noa" 
-                  fill
-                  className="object-contain h-[150px]"
+              <div className="h-36 w-36 mb-4">
+                <img
+                  src="/logo-noa-footer.png"
+                  alt="logo Noa"
+                  className="object-contain"
                 />
               </div>
-              <p className="text-gray-300 mx-6">Soluciones de energía confiables para procesos de misión crítica.</p>
+              <p className="text-gray-300 mx-2 mt-20">Soluciones de energía confiables para procesos de misión crítica.</p>
             </div>
             
             <div>
               <h4 className="text-lg font-semibold mb-4">Productos</h4>
               <ul className="space-y-2">
-                <li><a href="/ups" className="text-gray-300 hover:text-white">UPS</a></li>
-                
+                {productos.map((product) => (
+                  <li key={product.name}>
+                    <a href={product.link} className="text-gray-300 hover:text-white">
+                      {product.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             
@@ -32,16 +81,11 @@ function FooterContent() {
               <h4 className="text-lg font-semibold mb-4">Contacto</h4>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <Mail className="w-5 h-5 mt-1 mr-2 flex-shrink-0" />
                   <a href="mailto:ventas@enersafelatam.com" className="text-gray-300 hover:text-white">ventas@noasotonetworks.cl</a>
                 </div>
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+                  <MapPin className="w-5 h-5 mt-1 mr-2 flex-shrink-0" />
                   <span className="text-gray-300">Calle Covadonga vieja 520, Antofagasta</span>
                 </div>
               </div>

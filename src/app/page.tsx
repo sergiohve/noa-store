@@ -6,38 +6,9 @@ import ButtonWhatsApp from "./components/ButtonWhatsApp";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Footer from "./components/Footer";
 import Link from "next/link";
 
 function HomeContent() {
-  useEffect(() => {
-    const initSwiper = async () => {
-      if (typeof window !== "undefined") {
-        const Swiper = (await import("swiper")).default;
-        new Swiper(".slider-imagenes-home .swiper", {
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-          },
-          spaceBetween: 0,
-          loop: true,
-          speed: 2000,
-          navigation: {
-            nextEl:
-              ".slider-imagenes-home .swiper-button-next",
-            prevEl:
-              ".slider-imagenes-home .swiper-button-prev",
-          },
-          pagination: {
-            el: ".slider-imagenes-home .swiper-pagination",
-            clickable: true,
-          },
-        });
-      }
-    };
-
-    initSwiper();
-  }, []);
 
   return (
     <div className="font-sans bg-white text-gray-900">
@@ -47,9 +18,9 @@ function HomeContent() {
             src="/background.png"
             alt="Fondo de UPS"
             layout="fill"
-            objectFit=""
+            objectFit="cover"
             quality={10}
-            className="opacity-40 "
+            className="opacity-40"
           />
         </div>
 
@@ -81,7 +52,7 @@ function HomeContent() {
                     src="https://enersafelatam.com/wp-content/uploads/2023/06/Enersafe1-300x300.jpg"
                     alt="Catálogo Cooling"
                     fill
-                    className="rounded-lg"
+                    className="rounded-lg object-cover"
                   />
                 </div>
                 <div className="relative h-48">
@@ -89,7 +60,7 @@ function HomeContent() {
                     src="https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe60-768x768.jpg"
                     alt="Catálogo UPS"
                     fill
-                    className="rounded-lg"
+                    className="rounded-lg object-cover"
                   />
                 </div>
               </div>
@@ -191,9 +162,7 @@ function HomeContent() {
                   <Image
                     src={category.image}
                     alt={category.name}
-                    width={200}
-                    height={150}
-                    className="object-cover"
+                    fill
                   />
                   <div className="absolute inset-0 bg-gray-800 opacity-40 group-hover:opacity-20 transition-opacity"></div>
                   <div className="absolute inset-0 flex items-end">
@@ -207,8 +176,6 @@ function HomeContent() {
           </div>
         </div>
       </section>
-
-      <Footer />
       <ButtonWhatsApp texto="*Hola, estoy interesado en sus productos de energía. ¿Podrían ayudarme con una cotización?*" />
     </div>
   );

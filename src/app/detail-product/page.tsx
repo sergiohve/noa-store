@@ -103,11 +103,22 @@ function ProductDetailContent() {
                 <p className="mt-4 text-gray-800 leading-relaxed">
                   {product.description}
                 </p>
+
+                <div className="mt-4">
+                 {product.link ? <Link
+                    href={product.link ?? ""}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition-colors"
+                  >
+                    Ver Ficha Técnica (PDF)
+                  </Link> : "No esta disponible la ficha técnica"}
+                </div>
               </div>
             </div>
 
             <Button
-              className="bg-emerald-400 hover:bg-emerald-600  select-none cursor-pointer active:scale-[0.9] scale-100"
+              className="bg-emerald-400 hover:bg-emerald-600 select-none cursor-pointer active:scale-[0.9] scale-100"
               type="submit"
               onClick={() => addItem(product.id)}>
               Añadir a la Cotización

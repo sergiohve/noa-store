@@ -62,17 +62,10 @@ const ProductsHero = () => {
         <div className="h-auto w-full bg-white rounded-2xl md:-ml-32 mt-24">
           <div className="p-8 flex flex-col gap-4">
             <h1 className="text-neutral-900 text-xl font-bold">
-              UPS
+              Nuestras Soluciones
             </h1>
             <p className="text-neutral-900 font-semilight text-sm md:text-md leading-[1.2]">
-              Noa Store cuenta con UPS Interactivos, Online,
-              trifasicos y modulares,ofrecemos respaldo de
-              energia para distintas areas tales como
-              datacenter, equipamiento medico, mineria
-              telecomunicaciones,ademas de una excelente
-              protección eléctrica integral contra alzas de
-              voltage. Nuestras UPS ademas cuentan con el
-              garantias de 3 años.
+              Ofrecemos soluciones integrales para la protección y gestión de energía. Nuestra gama de productos incluye sistemas de alimentación ininterrumpida (UPS), estabilizadores de voltaje, baterías, equipos de climatización de precisión y gabinetes. Diseñados para proteger tus equipos de cortes de energía, variaciones de voltaje y otros riesgos eléctricos, nuestros productos aseguran la continuidad operativa en cualquier entorno.
             </p>
 
             <h1 className="text-neutral-900 text-xl font-bold">

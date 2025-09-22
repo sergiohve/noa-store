@@ -75,6 +75,7 @@ function HeaderContent({ children }: HeaderContentProps) {
             </Link>
 
             <div className="hidden md:flex gap-6 xl:gap-8 justify-end w-full px-4 xl:px-12">
+               <ProductsPopover />
               <Link
                 href="/contacto"
                 className="text-gray-800 hover:text-emerald-400 font-medium flex items-center transition-colors duration-200">
@@ -87,7 +88,7 @@ function HeaderContent({ children }: HeaderContentProps) {
                   QUIÉNES SOMOS
                 </span>
               </Link>
-              <ProductsPopover />
+             
             </div>
 
             <div className="hidden md:flex items-center space-x-4 gap-8">

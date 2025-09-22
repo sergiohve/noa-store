@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 <link
   rel="stylesheet"
   href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"></link>;
@@ -134,6 +135,7 @@ export default function RootLayout({
         <div>
           {children} <Toaster />
         </div>
+        <Footer />
       </body>
     </html>
   );

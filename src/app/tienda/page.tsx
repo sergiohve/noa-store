@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Footer from "../components/Footer";
 import ButtonWhatsApp from "../components/ButtonWhatsApp";
 import { Suspense } from "react";
 import Link from "next/link";
@@ -253,7 +252,6 @@ function TiendaContent() {
           )}
         </div>
       </main>
-      <Footer />
       <ButtonWhatsApp
         texto={`*Hola Noa Soto Networks, me gustaría una reunión para conversar sobre los productos*`}
       />
