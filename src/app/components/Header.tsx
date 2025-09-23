@@ -10,6 +10,7 @@ import { SearchInput } from "./SearchInput";
 import { useRouter } from "next/navigation";
 import ProductsPopover from "./ProductsPopover";
 import Link from "next/link";
+import useScrollTop from "../hooks/calculateHeight";
 
 interface HeaderContentProps {
   children?: ReactNode;
@@ -20,6 +21,7 @@ function HeaderContent({ children }: HeaderContentProps) {
   const [, setQuery] = useState("");
   const [, setIsOpen] = useState(false);
   const router = useRouter();
+  const scrollHeight = useScrollTop();
 
   const handleProductSelect = (productId: number) => {
     router.push(`/detail-product?id=${productId}`);
@@ -57,13 +59,18 @@ function HeaderContent({ children }: HeaderContentProps) {
 
   return (
     <div className="font-sans">
-      <header className="bg-white fixed w-full z-50 top-0 shadow-neutral-900 shadow-sm rounded-2xl">
+      <header
+        className={` ${
+          scrollHeight === 0
+            ? "bg-transparent"
+            : "bg-white shadow-neutral-900 shadow-sm"
+        } fixed w-full z-50 top-0  rounded-2xl transition-all`}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-3 md:py-0">
             <Link
               href="/"
               className="flex items-center z-10">
-              <div className="h-12 w-28 md:h-16 md:w-20 relative">
+              <div className="h-14 w-28 md:h-16 md:w-20 relative">
                 <Image
                   src="/noa-logo.png"
                   alt="noa-networks"
@@ -75,20 +82,27 @@ function HeaderContent({ children }: HeaderContentProps) {
             </Link>
 
             <div className="hidden md:flex gap-6 xl:gap-8 justify-end w-full px-4 xl:px-12">
-               <ProductsPopover />
+              <ProductsPopover />
               <Link
                 href="/contacto"
-                className="text-gray-800 hover:text-emerald-400 font-medium flex items-center transition-colors duration-200">
+                className={`${
+                  scrollHeight < 10
+                    ? "text-white"
+                    : "text-neutral-900"
+                } hover:text-emerald-400 font-medium flex items-center transition-colors duration-200`}>
                 <span>CONTACTO</span>
               </Link>
               <Link
                 href="/quienes-somos"
-                className="text-gray-800 hover:text-emerald-400 font-medium flex items-center transition-colors duration-200">
+                className={`${
+                  scrollHeight === 0
+                    ? "text-white"
+                    : "text-neutral-900"
+                } hover:text-emerald-400 text-[16px] font-medium flex items-center transition-colors duration-200`}>
                 <span className="whitespace-nowrap">
                   QUIÉNES SOMOS
                 </span>
               </Link>
-             
             </div>
 
             <div className="hidden md:flex items-center space-x-4 gap-8">
@@ -108,23 +122,35 @@ function HeaderContent({ children }: HeaderContentProps) {
             <div className="md:hidden flex items-center gap-4">
               <Cart />
               <button
-                className="menu-toggle flex flex-col justify-center items-center w-10 h-10 relative"
+                className="menu-toggle cursor-pointer flex flex-col justify-center items-center w-10 h-10 relative"
                 onClick={toggleMenu}
                 aria-label={
                   isMenuOpen ? "Cerrar menú" : "Abrir menú"
                 }>
                 <span
-                  className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 ${
+                  className={`w-6 h-0.5 ${
+                    scrollHeight !== 0
+                      ? "bg-neutral-800"
+                      : "bg-white"
+                  } transition-all duration-300 ${
                     isMenuOpen
                       ? "rotate-45 translate-y-2"
                       : ""
                   }`}></span>
                 <span
-                  className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 mt-1.5 ${
+                  className={`w-6 h-0.5 ${
+                    scrollHeight !== 0
+                      ? "bg-neutral-800"
+                      : "bg-white"
+                  } transition-all duration-300 mt-1.5 ${
                     isMenuOpen ? "opacity-0" : ""
                   }`}></span>
                 <span
-                  className={`w-6 h-0.5 bg-gray-800 transition-all duration-300 mt-1.5 ${
+                  className={`w-6 h-0.5 ${
+                    scrollHeight !== 0
+                      ? "bg-neutral-800"
+                      : "bg-white"
+                  } transition-all duration-300 mt-1.5 ${
                     isMenuOpen
                       ? "-rotate-45 -translate-y-2"
                       : ""
@@ -142,19 +168,19 @@ function HeaderContent({ children }: HeaderContentProps) {
             <div className="flex flex-col space-y-4 px-4 pb-4">
               <Link
                 href="/quienes-somos"
-                className="text-gray-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200"
+                className="text-neutral-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200 "
                 onClick={() => setIsMenuOpen(false)}>
                 CONTACTO
               </Link>
               <Link
                 href="/quienes-somos"
-                className="text-gray-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200"
+                className="text-neutral-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}>
                 QUIÉNES SOMOS
               </Link>
               <Link
                 href="/tienda"
-                className="text-gray-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200"
+                className="text-neutral-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}>
                 PRODUCTOS
               </Link>

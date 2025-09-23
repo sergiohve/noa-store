@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import Image from "next/image";
 
 import ButtonWhatsApp from "./components/ButtonWhatsApp";
@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 function HomeContent() {
-
   return (
     <div className="font-sans bg-white text-gray-900">
       <section className="relative w-full h-screen bg-[#1A1A1A] overflow-hidden">
@@ -20,23 +20,26 @@ function HomeContent() {
             layout="fill"
             objectFit="cover"
             quality={10}
-            className="opacity-40"
+            className="opacity-90"
           />
         </div>
 
         <div className="relative z-20 container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
           <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-5xl font-bold mb-4 leading-tight">
               Productos de Energía Confiable para tu Negocio
             </h2>
             <p className="text-sm sm:text-lg mb-6">
               Explora nuestro catálogo de equipos UPS,
               baterías, y soluciones de cooling.
             </p>
-            <Link
-              href="/tienda"
-              className="inline-block px-6 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-300">
-              Explorar productos
+            <Link href="/tienda">
+              <Button
+                variant="ghost"
+                type="button"
+                className=" border  hover:bg-emerald-500 cursor-pointer hover:text-white rounded-3xl p-6">
+                EXPLORAR PRODUCTOS
+              </Button>
             </Link>
           </div>
         </div>
@@ -75,11 +78,11 @@ function HomeContent() {
                 equipo que necesitas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/tienda"
-                  className="bg-[#90D116] text-white px-6 py-3 rounded-md hover:bg-[#72A612] transition text-center">
-                  Ver catálogo completo
-                </a>
+                <Link href="/tienda">
+                  <Button className="bg-emerald-500 hover:bg-emerald-600 cursor-pointer ">
+                    VER CATÁLOGO COMPLETO
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
