@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import useScrollTop from "../hooks/calculateHeight";
 import {
   MenuItem,
   navigationData,
@@ -74,18 +75,28 @@ const ProductsPopover: React.FC<
     );
   };
 
+  const scrollHeight = useScrollTop();
+
   return (
     <div className="hidden md:flex items-center">
       <nav>
-        <div className="relative group">
+        <div className="relative group -mr-2">
           <button
-            className="text-gray-800 hover:text-emerald-400 font-medium flex items-center space-x-1 transition-colors duration-200 py-2 px-1 cursor-pointer"
+            className={`${
+              scrollHeight === 0
+                ? "text-white"
+                : " text-neutral-900"
+            } hover:text-emerald-400 font-medium flex items-center space-x-1 transition-colors duration-200 py-2 px-1 cursor-pointer text-[16px]`}
             aria-expanded="false"
             aria-haspopup="true">
             <Link href={"/tienda"}>PRODUCTOS</Link>
             <ChevronDown
               size={16}
-              className="text-gray-500 transition-transform duration-300 group-hover:rotate-180 group-hover:text-emerald-400"
+              className={`text-gray-500 transition-all group-hover:rotate-180 group-hover:text-emerald-400 ${
+                scrollHeight === 0
+                  ? "text-white"
+                  : " text-neutral-900"
+              }`}
             />
           </button>
 

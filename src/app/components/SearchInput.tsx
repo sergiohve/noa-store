@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import { productsData } from "../constants/constants";
+import useScrollTop from "../hooks/calculateHeight";
 
 interface SearchInputProps {
   onProductSelect: (productId: number) => void;
@@ -61,6 +62,8 @@ export function SearchInput({
     }
   }, [query, debouncedSearch]);
 
+  const scrollHeight = useScrollTop();
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -92,8 +95,15 @@ export function SearchInput({
 
   return (
     <div className={`relative ${className} w-full`}>
+      {" "}
       <div className="relative w-full">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <Search
+          className={`absolute left-3 top-1/2 transform -translate-y-1/2  h-4 w-4 transition-all ${
+            scrollHeight === 0
+              ? "text-white"
+              : "text-neutral-900"
+          }`}
+        />
         <Input
           type="text"
           value={query}
@@ -101,7 +111,11 @@ export function SearchInput({
           onBlur={handleInputBlur}
           onFocus={handleInputFocus}
           placeholder={placeholder}
-          className="w-full min-w-62 xl:min-w-82 border-1 text-neutral-800 focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 pl-10"
+          className={`${
+            scrollHeight === 0
+              ? "border-neutral-300 text-white placeholder:text-neutral-300"
+              : "border-neutral-600 text-neutral-900 placeholder:text-neutral-700"
+          } w-full min-w-62 xl:min-w-82 border-1   focus:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 pl-10 transition-all`}
         />
         {query && (
           <Button
@@ -109,11 +123,16 @@ export function SearchInput({
             size="sm"
             onClick={clearSearch}
             className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0 cursor-pointer">
-            <X className="h-3 w-3" />
+            <X
+              className={`h-3 w-3 ${
+                scrollHeight === 0
+                  ? "border-neutral-300 text-white"
+                  : "border-neutral-600 text-neutral-900"
+              } `}
+            />
           </Button>
         )}
       </div>
-
       {isOpen && (query || suggestions.length > 0) && (
         <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-md shadow-xs shadow-neutral-900 z-50 mt-1 max-h-60 overflow-y-auto">
           {isLoading ? (
