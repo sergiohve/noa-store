@@ -61,7 +61,7 @@ function HomeContent() {
                     src="https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe60-768x768.jpg"
                     alt="Catálogo UPS"
                     fill
-                    className="rounded-lg object-cover"
+                    className="rounded-lg"
                   />
                 </div>
               </div>
