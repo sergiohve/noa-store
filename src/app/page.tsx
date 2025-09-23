@@ -7,38 +7,49 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import GridDistortion from "./hooks/background";
 
 function HomeContent() {
   return (
-    <div className="font-sans bg-white text-gray-900">
-      <section className="relative w-full h-screen bg-[#1A1A1A] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/background.png"
-            alt="Fondo de UPS"
-            layout="fill"
-            objectFit="cover"
-            quality={10}
-            className="opacity-90"
+    <div className="font-sans bg-white text-neutral-900">
+      <section className="relative w-full h-[100dvh] bg-[#171717] overflow-hidden">
+        <div className="absolute inset-0">
+          <GridDistortion
+            imageSrc={`/ups2.jpg`}
+            grid={10}
+            mouse={0.1}
+            strength={0.15}
+            relaxation={0.9}
+            className="h-full w-full object-contain opacity-40"
           />
         </div>
 
-        <div className="relative z-20 container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
-          <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
-            <h2 className="text-xl sm:text-2xl lg:text-5xl font-bold mb-4 leading-tight">
-              Productos de energía Confiable para tus operaciones con post-venta local en la II Región de Antofagasta.
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200">
-              Explora nuestro catálogo de equipos UPS, baterías, y soluciones de cooling.
-            </p>
-            <Link href="/tienda">
-              <Button
-                variant="ghost"
-                type="button"
-                className=" border  hover:bg-emerald-500 cursor-pointer hover:text-white rounded-3xl p-6">
-                EXPLORAR PRODUCTOS
-              </Button>
-            </Link>
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
+            <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
+              <div className="pointer-events-none">
+                <h2 className="text-xl sm:text-2xl lg:text-5xl font-bold mb-4 leading-tight">
+                  Productos de energía Confiable para tus
+                  operaciones con post-venta local en la II
+                  Región de Antofagasta.
+                </h2>
+                <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200">
+                  Explora nuestro catálogo de equipos UPS,
+                  baterías, y soluciones de cooling.
+                </p>
+              </div>
+
+              <Link
+                href="/tienda"
+                className="pointer-events-auto">
+                <Button
+                  variant="ghost"
+                  type="button"
+                  className="border hover:bg-emerald-500 cursor-pointer hover:text-white rounded-3xl p-6">
+                  EXPLORAR PRODUCTOS
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -61,17 +72,20 @@ function HomeContent() {
                     src="https://enersafelatam.com/wp-content/uploads/2024/02/Enersafe60-768x768.jpg"
                     alt="Catálogo UPS"
                     fill
-                    className="rounded-lg"
+                    className="rounded-lg object-cover"
                   />
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2 lg:pl-8 order-1 lg:order-2">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-                Busca el Equipo que Mantendrá tu Operación Segura.
+                Busca el Equipo que Mantendrá tu Operación
+                Segura.
               </h2>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
-                Desde soluciones para centros de datos hasta protección para el hogar, contamos con el equipo que necesitas.
+                Desde soluciones para centros de datos hasta
+                protección para el hogar, contamos con el
+                equipo que necesitas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/tienda">
@@ -94,52 +108,62 @@ function HomeContent() {
             {[
               {
                 name: "Equipos de Climatización",
-                image: "https://enersafelatam.com/wp-content/uploads/2025/04/FAMILIA-EQUIPOS-AIRSAFE.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2025/04/FAMILIA-EQUIPOS-AIRSAFE.png",
                 link: "/ups?tipo=clima-precision",
               },
               {
                 name: "Gabinete Outdoor",
-                image: "https://enersafelatam.com/wp-content/uploads/2025/08/S-M-L.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2025/08/S-M-L.png",
                 link: "/ups?tipo=gabinete",
               },
               {
                 name: "UPS",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/11/6.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/6.png",
                 link: "/ups",
               },
               {
                 name: "Accesorios para UPS",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/11/1.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/1.png",
                 link: "/ups?tipo=accesorios",
               },
               {
                 name: "Bancos de Baterías",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/11/2.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/2.png",
                 link: "/ups?tipo=bancos-baterias",
               },
               {
                 name: "Baterías",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/11/3.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/3.png",
                 link: "/ups?tipo=baterias",
               },
               {
                 name: "Estabilizadores de Voltaje",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/11/4.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/11/4.png",
                 link: "/ups?tipo=estabilizadores-de-voltaje",
               },
               {
                 name: "Datacenter",
-                image: "https://enersafelatam.com/wp-content/uploads/2023/06/datacenter.jpeg",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2023/06/datacenter.jpeg",
                 link: "/ups?tipo=baterias",
               },
               {
                 name: "Rack de Comunicaciones",
-                image: "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-rack.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-rack.png",
                 link: "/ups?tipo=rack-comunicaciones",
               },
               {
                 name: "Inversores",
-                image: "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-inversores.png",
+                image:
+                  "https://enersafelatam.com/wp-content/uploads/2024/02/fotos-categoria-inversores.png",
                 link: "/ups?tipo=inversores",
               },
             ].map((category, index) => (
