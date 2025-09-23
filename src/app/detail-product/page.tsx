@@ -65,6 +65,12 @@ function ProductDetailContent() {
               className="hover:text-emerald-500">
               Productos
             </Link>
+             <span className="mx-2">/</span>
+             <Link
+              href={`/detail-product/?id=${productId}`}
+              className="hover:text-emerald-500">
+              Detalle de producto
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">
               {product.name}

@@ -82,6 +82,15 @@ function HeaderContent({ children }: HeaderContentProps) {
             </Link>
 
             <div className="hidden md:flex gap-6 xl:gap-8 justify-end w-full px-4 xl:px-12">
+              <Link
+                href="/"
+                className={`${
+                  scrollHeight < 10
+                    ? "text-white"
+                    : "text-neutral-900"
+                } hover:text-emerald-400 font-medium flex items-center transition-colors duration-200`}>
+                <span>HOME</span>
+              </Link>
               <ProductsPopover />
               <Link
                 href="/contacto"
@@ -166,6 +175,12 @@ function HeaderContent({ children }: HeaderContentProps) {
                 : "max-h-0 opacity-0 overflow-hidden"
             }`}>
             <div className="flex flex-col space-y-4 px-4 pb-4">
+               <Link
+                href="/"
+                className="text-neutral-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200 "
+                onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
               <Link
                 href="/quienes-somos"
                 className="text-neutral-800 hover:text-emerald-400 font-medium py-2 transition-colors duration-200 "
