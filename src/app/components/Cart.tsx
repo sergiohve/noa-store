@@ -18,18 +18,65 @@ import { ShoppingCartIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import useScrollTop from "../hooks/calculateHeight";
+import { productsData } from "../constants/constants";
 
 export function Cart() {
   const items = useCartStore(state => state.items);
   const scrollHeight = useScrollTop();
-  const totalItems = useCartStore(state =>
-    state.totalItems()
-  );
+  const totalItems = useCartStore(state => state.totalItems());
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+ 
+  const getCartDetails = () => {
+    return items.map(item => {
+      const articulo = productsData.find(a => a.id === item.id);
+      return {
+        ...item,
+        ...articulo
+      };
+    }).filter(item => item.name); 
+  };
+
+  
+  const sendToWhatsApp = () => {
+    const cartDetails = getCartDetails();
+    
+    if (cartDetails.length === 0) {
+      alert("No hay productos para cotizar");
+      return;
+    }
+
+   
+    let message = "¡Hola! Me gustaría cotizar los siguientes productos:%0A%0A";
+    
+    cartDetails.forEach((item, index) => {
+      message += `*${index + 1}. ${item.name}*%0A`;
+      message += `Cantidad: ${item.quantity}%0A`;
+      message += `Precio unitario: $%0A`;
+      if (item.description) message += `Descripción: ${item.description}%0A`;
+      message += `%0A`;
+    });
+
+    const total = cartDetails.reduce((sum, item) => {
+      return sum + 0 * item.quantity;
+    }, 0);
+
+    if (total > 0) {
+      message += `*Total estimado: $${total}*%0A%0A`;
+    }
+
+    message += "Por favor, envíenme más información. ¡Gracias!";
+
+    const phoneNumber = "+56928589224"; 
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <Sheet>
@@ -59,8 +106,7 @@ export function Cart() {
         <SheetHeader>
           <SheetTitle>Cotización</SheetTitle>
           <SheetDescription>
-            Se muestra la lista de los elementos que desea
-            cotizar
+            Se muestra la lista de los elementos que desea cotizar
           </SheetDescription>
         </SheetHeader>
 
@@ -108,8 +154,9 @@ export function Cart() {
 
         <SheetFooter className="mt-auto pt-4 border-t">
           <Button
+            onClick={sendToWhatsApp}
             className="bg-emerald-400 hover:bg-emerald-600 cursor-pointer select-none"
-            type="submit">
+            type="button">
             Cotizar
           </Button>
           <SheetClose asChild>
