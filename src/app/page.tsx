@@ -20,8 +20,18 @@ function HomeContent() {
             mouse={0.1}
             strength={0.15}
             relaxation={0.9}
-            className="h-full w-full object-contain opacity-40"
+            className="h-full w-full object-contain opacity-40 hidden md:flex"
           />
+          <div className="flex md:hidden inset-0 z-0 ">
+            <Image
+              src="/background.png"
+              alt="Fondo de UPS"
+              layout="fill"
+              objectFit=""
+              quality={10}
+              className="opacity-40 "
+            />
+          </div>
         </div>
 
         <div className="absolute inset-0 z-10 pointer-events-none">
