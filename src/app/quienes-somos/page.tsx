@@ -14,11 +14,13 @@ const QuienesSomos = () => {
       </div>
       <div className="max-w-3xl mx-auto mt-12 bg-white rounded-xl shadow-2xl p-6 sm:p-10 text-black space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">
-            Nuestra Misión
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-800">Nuestra Misión</h2>
           <p className="mt-4 text-gray-600">
-            Noa Store es un distribuidor especializado de Enersafe LATAM, enfocado en soluciones de respaldo energético, conectividad y networking de alto nivel para industrias que demandan continuidad operativa. Bajo este sello, proveemos un portafolio robusto que incluye:
+            Noa Store es un distribuidor especializado de Enersafe LATAM,
+            enfocado en soluciones de respaldo energético, conectividad y
+            networking de alto nivel para industrias que demandan continuidad
+            operativa. Bajo este sello, proveemos un portafolio robusto que
+            incluye:
           </p>
         </div>
 
@@ -30,25 +32,42 @@ const QuienesSomos = () => {
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">UPS:</span> UPS interactivas, online, trifásicas y modulares, cubriendo desde potencias modestas hasta sistemas de alta capacidad, ideales para datacenters, minería, telecomunicaciones y equipos críticos.
+                <span className="font-semibold">UPS:</span> UPS interactivas,
+                online, trifásicas y modulares, cubriendo desde potencias
+                modestas hasta sistemas de alta capacidad, ideales para
+                datacenters, minería, telecomunicaciones y equipos críticos.
               </div>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Bancos de Baterías y Accesorios:</span> Para extender los tiempos de autonomía o soportar cargas exigentes.
+                <span className="font-semibold">
+                  Bancos de Baterías y Accesorios:
+                </span>{" "}
+                Para extender los tiempos de autonomía o soportar cargas
+                exigentes.
               </div>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Estabilizadores de Voltaje:</span> Reguladores automáticos y estabilización eléctrica, protegiendo los equipos frente a variaciones de tensión que pueden afectar su integridad o causar fallos.
+                <span className="font-semibold">
+                  Estabilizadores de Voltaje:
+                </span>{" "}
+                Reguladores automáticos y estabilización eléctrica, protegiendo
+                los equipos frente a variaciones de tensión que pueden afectar
+                su integridad o causar fallos.
               </div>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Equipamiento para Datacenters:</span> Racks y gabinetes (incluyendo soluciones Micro Data Center), unidades de distribución de energía (PDU) e infraestructura que integra alimentación, monitorización y seguridad.
+                <span className="font-semibold">
+                  Equipamiento para Datacenters:
+                </span>{" "}
+                Racks y gabinetes (incluyendo soluciones Micro Data Center),
+                unidades de distribución de energía (PDU) e infraestructura que
+                integra alimentación, monitorización y seguridad.
               </div>
             </li>
           </ul>
@@ -62,27 +81,37 @@ const QuienesSomos = () => {
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Postventa y Garantías:</span> Contamos con un servicio de postventa eficiente, garantías locales (tres años en muchos modelos de UPS) y stock de repuestos disponibles.
+                <span className="font-semibold">Postventa y Garantías: </span>
+                 Servicio Local con Garantías Reales Con base en Antofagasta,
+                aseguramos postventa inmediata, garantías de hasta tres años y
+                disponibilidad de repuestos en la región.
               </div>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Asesoría Técnica:</span> Te ayudamos a dimensionar la UPS correcta, calcular autonomía, escoger formatos rack/tower, considerar redundancia, compatibilidad de conectividad, etc.
+                <span className="font-semibold">Asesoría Técnica:</span> Te
+                ayudamos a dimensionar la UPS correcta, calcular autonomía,
+                escoger formatos rack/tower, considerar redundancia,
+                compatibilidad de conectividad, etc.
               </div>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">&bull;</span>
               <div>
-                <span className="font-semibold">Perspectiva Local:</span> Entendemos las exigencias del norte chileno, los retos de infraestructura, humedad, temperatura, y variabilidad eléctrica, lo que hace que las soluciones Enersafe sean una opción sólida para quienes operan en condiciones complejas.
+                <span className="font-semibold">Perspectiva Local:</span>{" "}
+                Entendemos las exigencias del norte chileno, los retos de
+                infraestructura, humedad, temperatura, y variabilidad eléctrica,
+                lo que hace que las soluciones Enersafe sean una opción sólida
+                para quienes operan en condiciones complejas.
               </div>
             </li>
           </ul>
         </div>
       </div>
       <ButtonWhatsApp
-              texto={`*Hola Noa Soto Networks, me gustaría una reunión para conversar sobre los productos*`}
-            />
+        texto={`*Hola Noa Soto Networks, me gustaría una reunión para conversar sobre los productos*`}
+      />
     </div>
   );
 };

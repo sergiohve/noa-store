@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 function HomeContent() {
   return (
@@ -15,24 +16,28 @@ function HomeContent() {
           <Image
             src="/background.png"
             alt="Fondo de UPS"
-            fill
-            className="object-cover opacity-40"
-            priority
+            layout="fill"
+            objectFit="cover"
+            quality={10}
+            className="opacity-90"
           />
         </div>
 
-        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="text-left max-w-lg lg:max-w-xl xl:max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-200">
-              Productos de Energía Confiable para tu Negocio
+        <div className="relative z-20 container mx-auto px-4 pt-16 pb-8 text-white h-full flex flex-col justify-center">
+          <div className="relative text-left max-w-lg lg:max-w-xl xl:max-w-2xl ml-4 sm:ml-8 lg:ml-12">
+            <h2 className="text-xl sm:text-2xl lg:text-5xl font-bold mb-4 leading-tight">
+              Productos de energía Confiable para tus operaciones con post-venta local en la II Región de Antofagasta.
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200">
               Explora nuestro catálogo de equipos UPS, baterías, y soluciones de cooling.
             </p>
-            <Link
-              href="/tienda"
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-300 text-sm sm:text-base font-medium">
-              Explorar productos
+            <Link href="/tienda">
+              <Button
+                variant="ghost"
+                type="button"
+                className=" border  hover:bg-emerald-500 cursor-pointer hover:text-white rounded-3xl p-6">
+                EXPLORAR PRODUCTOS
+              </Button>
             </Link>
           </div>
         </div>
@@ -63,17 +68,17 @@ function HomeContent() {
             </div>
             <div className="lg:w-1/2 lg:pl-8 order-1 lg:order-2">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-                Encuentra el Equipo Perfecto
+                Busca el Equipo que Mantendrá tu Operación Segura.
               </h2>
               <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
                 Desde soluciones para centros de datos hasta protección para el hogar, contamos con el equipo que necesitas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/tienda"
-                  className="bg-[#90D116] text-white px-6 py-3 rounded-md hover:bg-[#72A612] transition text-center text-sm sm:text-base">
-                  Ver catálogo completo
-                </a>
+                <Link href="/tienda">
+                  <Button className="bg-emerald-500 hover:bg-emerald-600 cursor-pointer ">
+                    VER CATÁLOGO COMPLETO
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
